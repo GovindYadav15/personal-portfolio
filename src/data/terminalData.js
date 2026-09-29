@@ -307,4 +307,18 @@ export const TERMINAL_THEMES = {
     muted: "#8b5cf6",
     cursor: "#00f0ff",
   },
+  light: {
+    name: "Paper Light",
+    bg: "rgba(248, 250, 252, 0.96)",
+    border: "rgba(51, 65, 85, 0.25)",
+    headerBg: "rgba(226, 232, 240, 0.95)",
+    text: "#0f172a",
+    promptUser: "#0369a1",
+    promptPath: "#475569",
+    commandText: "#0f172a",
+    accent: "#0284c7",
+    muted: "#64748b",
+    cursor: "#0284c7",
+  },
 };
+

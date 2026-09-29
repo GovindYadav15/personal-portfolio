@@ -1,5 +1,5 @@
 // src/components/Terminal.jsx
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   BANNER,
   VFS,
@@ -10,8 +10,8 @@ import {
 } from "../data/terminalData";
 import { Terminal as TerminalIcon, Maximize2, Minimize2, RotateCcw, ExternalLink } from "lucide-react";
 
-export default function Terminal() {
-  const [themeKey, setThemeKey] = useState("forest");
+export default function Terminal({ defaultTheme = "forest", className = "" } = {}) {
+  const [themeKey, setThemeKey] = useState(defaultTheme);
   const [cwd, setCwd] = useState("~");
   const [input, setInput] = useState("");
   const [history, setHistory] = useState([]);
@@ -33,12 +33,12 @@ export default function Terminal() {
       id: 2,
       type: "output",
       content: (
-        <div className="space-y-1 text-sm">
+        <div className="space-y-1.5 text-xs md:text-sm">
           <p>
             Welcome to <span className="font-bold text-emerald-400">Govind's Interactive Terminal</span>.
           </p>
           <p className="opacity-80">
-            Type <span className="underline font-semibold text-lime-300">help</span> to list commands, or try{" "}
+            Type <span className="underline font-semibold text-lime-300">help</span> to list commands, or explore{" "}
             <span className="font-semibold text-lime-300">projects</span>,{" "}
             <span className="font-semibold text-lime-300">skills</span>,{" "}
             <span className="font-semibold text-lime-300">experience</span>, or{" "}
@@ -108,7 +108,9 @@ export default function Terminal() {
       case "help": {
         outputContent = (
           <div className="space-y-3 py-1 font-mono text-xs md:text-sm">
-            <p className="font-semibold text-lime-300">Available Terminal Commands:</p>
+            <p className="font-semibold text-lime-300 border-b border-white/10 pb-1">
+              Available Terminal Commands:
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 opacity-90">
               <div>
                 <span className="font-bold text-lime-400">help</span>
@@ -148,7 +150,7 @@ export default function Terminal() {
               </div>
               <div>
                 <span className="font-bold text-lime-400">theme &lt;name&gt;</span>
-                <span className="opacity-75"> - Switch skin: forest, dark, matrix, retro, cyberpunk</span>
+                <span className="opacity-75"> - Switch skin (forest, dark, matrix, retro, light, cyberpunk)</span>
               </div>
               <div>
                 <span className="font-bold text-lime-400">goto &lt;sec&gt;</span>
@@ -156,7 +158,7 @@ export default function Terminal() {
               </div>
               <div>
                 <span className="font-bold text-lime-400">clear</span>
-                <span className="opacity-75"> - Clear terminal screen (or Ctrl+L)</span>
+                <span className="opacity-75"> - Clear terminal screen (or Ctrl + L)</span>
               </div>
               <div>
                 <span className="font-bold text-lime-400">whoami</span>
@@ -168,8 +170,8 @@ export default function Terminal() {
               </div>
             </div>
             <p className="text-xs opacity-60 pt-1">
-              Tip: Press <kbd className="px-1 py-0.5 rounded bg-white/10 font-bold">Tab</kbd> for auto-complete and{" "}
-              <kbd className="px-1 py-0.5 rounded bg-white/10 font-bold">↑ / ↓</kbd> for history.
+              Tip: Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 font-bold border border-white/10">Tab</kbd> for auto-complete and{" "}
+              <kbd className="px-1.5 py-0.5 rounded bg-white/10 font-bold border border-white/10">↑ / ↓</kbd> for history.
             </p>
           </div>
         );
@@ -178,34 +180,53 @@ export default function Terminal() {
 
       case "ls":
       case "dir": {
-        const targetDirNode = getDirNode(cwd);
+        let targetDirNode = null;
+        let targetPathLabel = cwd;
+
+        if (argStr) {
+          const cleanArg = argStr.replace(/^~\/?/, "").replace(/\/$/, "");
+          if (VFS.children?.[cleanArg] && VFS.children[cleanArg].type === "dir") {
+            targetDirNode = VFS.children[cleanArg];
+            targetPathLabel = `~/${cleanArg}`;
+          }
+        }
+
+        if (!targetDirNode) {
+          targetDirNode = getDirNode(cwd);
+        }
+
         if (!targetDirNode || !targetDirNode.children) {
           outputContent = <span className="text-red-400">Error: cannot list directory</span>;
           outputType = "error";
         } else {
           const items = Object.entries(targetDirNode.children);
           outputContent = (
-            <div className="flex flex-wrap gap-4 py-1 font-mono text-sm">
-              {items.map(([name, node]) => (
-                <span
-                  key={name}
-                  className={
-                    node.type === "dir"
-                      ? "text-lime-300 font-bold cursor-pointer hover:underline"
-                      : "text-slate-200 cursor-pointer hover:underline"
-                  }
-                  onClick={() => {
-                    if (node.type === "dir") {
-                      executeCommand(`cd ${name}`);
-                    } else {
-                      executeCommand(`cat ${name}`);
+            <div className="space-y-1.5 py-1 font-mono text-xs md:text-sm">
+              <div className="text-[11px] opacity-60">Directory: {targetPathLabel}</div>
+              <div className="flex flex-wrap gap-4">
+                {items.map(([name, node]) => (
+                  <button
+                    key={name}
+                    type="button"
+                    className={
+                      node.type === "dir"
+                        ? "text-lime-300 font-bold hover:underline cursor-pointer bg-transparent border-0 p-0 font-mono text-left"
+                        : "text-slate-200 hover:underline cursor-pointer bg-transparent border-0 p-0 font-mono text-left"
                     }
-                  }}
-                >
-                  {name}
-                  {node.type === "dir" ? "/" : ""}
-                </span>
-              ))}
+                    onClick={() => {
+                      if (node.type === "dir") {
+                        executeCommand(`cd ${name}`);
+                      } else {
+                        executeCommand(`cat ${name}`);
+                      }
+                    }}
+                    title={node.type === "dir" ? `cd ${name}` : `cat ${name}`}
+                  >
+                    {name}
+                    {node.type === "dir" ? "/" : ""}
+                  </button>
+                ))}
+              </div>
             </div>
           );
         }
@@ -216,13 +237,27 @@ export default function Terminal() {
         const dest = argStr;
         if (!dest || dest === "~" || dest === "/") {
           setCwd("~");
+          outputContent = (
+            <span className="opacity-75 text-xs">
+              Returned to root directory <code className="text-lime-300">~</code>. Type{" "}
+              <code className="text-lime-300">ls</code> to view sections.
+            </span>
+          );
         } else if (dest === "..") {
           if (cwd === "~") {
-            // Already at root
+            outputContent = (
+              <span className="opacity-75 text-xs">Already at root directory (~).</span>
+            );
           } else {
             const parts = cwd.split("/").filter(Boolean);
             parts.pop();
-            setCwd(parts.length <= 1 ? "~" : parts.join("/"));
+            const newPath = parts.length <= 1 ? "~" : parts.join("/");
+            setCwd(newPath);
+            outputContent = (
+              <span className="opacity-75 text-xs">
+                Moved to <code className="text-lime-300">{newPath}</code>.
+              </span>
+            );
           }
         } else {
           const cleanDest = dest.replace(/\/$/, "");
@@ -235,11 +270,21 @@ export default function Terminal() {
           ) {
             const newPath = cwd === "~" ? `~/${cleanDest}` : `${cwd}/${cleanDest}`;
             setCwd(newPath);
+            const childItems = Object.keys(targetNode.children[cleanDest].children || {});
             outputContent = (
-              <span className="opacity-75 text-xs">
-                Changed working directory to <code className="text-lime-300">{newPath}</code>. Type{" "}
-                <code className="text-lime-300">ls</code> to view files.
-              </span>
+              <div className="space-y-1 text-xs">
+                <p className="opacity-80">
+                  Changed directory to <code className="font-bold text-lime-300">{newPath}</code>.
+                </p>
+                {childItems.length > 0 && (
+                  <p className="opacity-70">
+                    Files: {childItems.join(", ")}
+                  </p>
+                )}
+                <p className="text-[11px] opacity-60">
+                  Tip: run <code className="text-lime-300">ls</code> to list or <code className="text-lime-300">{cleanDest}</code> to display this section.
+                </p>
+              </div>
             );
           } else {
             outputContent = (
@@ -254,28 +299,36 @@ export default function Terminal() {
       case "cat": {
         const filename = argStr;
         if (!filename) {
-          outputContent = <span className="text-amber-400">Usage: cat &lt;filename&gt;</span>;
+          outputContent = (
+            <span className="text-amber-400">Usage: cat &lt;filename&gt; (e.g. cat about.txt, cat contact.json)</span>
+          );
         } else {
-          const currDir = getDirNode(cwd);
-          let fileNode = currDir?.children?.[filename];
-
-          // Also check root if not in root
-          if (!fileNode && cwd !== "~") {
-            fileNode = VFS.children?.[filename];
+          let fileNode = null;
+          if (filename.includes("/")) {
+            const parts = filename.replace(/^~\/?/, "").split("/").filter(Boolean);
+            if (parts.length === 2 && VFS.children?.[parts[0]]?.children?.[parts[1]]) {
+              fileNode = VFS.children[parts[0]].children[parts[1]];
+            }
+          } else {
+            const currDir = getDirNode(cwd);
+            fileNode = currDir?.children?.[filename];
+            if (!fileNode && cwd !== "~") {
+              fileNode = VFS.children?.[filename];
+            }
           }
 
           if (!fileNode) {
             outputContent = (
-              <span className="text-red-400">cat: {filename}: No such file or directory</span>
+              <span className="text-red-400">cat: {filename}: No such file or directory. Try 'ls' to list files.</span>
             );
             outputType = "error";
           } else if (fileNode.type === "dir") {
             outputContent = (
-              <span className="text-amber-400">cat: {filename}: Is a directory (use 'cd {filename}')</span>
+              <span className="text-amber-400">cat: {filename}: Is a directory (use 'cd {filename}' or 'ls {filename}')</span>
             );
           } else {
             outputContent = (
-              <pre className="whitespace-pre-wrap font-mono text-xs md:text-sm opacity-90 leading-relaxed bg-black/20 p-2.5 rounded border border-white/5">
+              <pre className="whitespace-pre-wrap font-mono text-xs md:text-sm opacity-90 leading-relaxed bg-black/25 p-3 rounded border border-white/10 shadow-inner">
                 {fileNode.content}
               </pre>
             );
@@ -459,9 +512,10 @@ export default function Terminal() {
                 <code className="text-sky-400 font-semibold">dark</code>,{" "}
                 <code className="text-emerald-400 font-semibold">matrix</code>,{" "}
                 <code className="text-amber-400 font-semibold">retro</code>,{" "}
+                <code className="text-sky-300 font-semibold">light</code>,{" "}
                 <code className="text-fuchsia-400 font-semibold">cyberpunk</code>
               </p>
-              <p className="text-xs opacity-60">Example: 'theme matrix'</p>
+              <p className="text-xs opacity-60">Example: 'theme matrix' or 'theme light'</p>
             </div>
           );
         } else if (TERMINAL_THEMES[targetTheme]) {
@@ -474,7 +528,7 @@ export default function Terminal() {
         } else {
           outputContent = (
             <span className="text-red-400 text-xs md:text-sm">
-              Unknown theme: '{targetTheme}'. Available: forest, dark, matrix, retro, cyberpunk
+              Unknown theme: '{targetTheme}'. Available: forest, dark, matrix, retro, light, cyberpunk
             </span>
           );
           outputType = "error";
@@ -485,7 +539,7 @@ export default function Terminal() {
       case "goto":
       case "scroll": {
         const sec = argStr.toLowerCase().replace(/^#/, "");
-        const validSections = ["home", "projects", "skills", "experience", "about", "certifications", "contact"];
+        const validSections = ["home", "projects", "skills", "experience", "playground", "about", "certifications", "contact"];
         if (validSections.includes(sec)) {
           const el = document.getElementById(sec);
           if (el) {
@@ -497,7 +551,7 @@ export default function Terminal() {
         } else {
           outputContent = (
             <span className="text-amber-400 text-xs">
-              Usage: goto &lt;section&gt; (e.g. goto projects, goto contact, goto skills)
+              Usage: goto &lt;section&gt; (e.g. goto projects, goto playground, goto contact)
             </span>
           );
         }
@@ -552,9 +606,13 @@ export default function Terminal() {
         outputContent = (
           <div className="text-red-400 font-mono text-xs md:text-sm">
             command not found: <span className="font-semibold text-white">{cmd}</span>. Type{" "}
-            <span className="underline cursor-pointer text-lime-300" onClick={() => executeCommand("help")}>
+            <button
+              type="button"
+              className="underline cursor-pointer text-lime-300 bg-transparent border-0 p-0 font-mono inline"
+              onClick={() => executeCommand("help")}
+            >
               help
-            </span>{" "}
+            </button>{" "}
             for a list of valid commands.
           </div>
         );
@@ -694,11 +752,11 @@ export default function Terminal() {
   return (
     <div
       ref={containerRef}
-      className={`rounded-2xl border transition-all duration-300 shadow-2xl flex flex-col overflow-hidden font-mono ${
+      className={`rounded-2xl border transition-all duration-300 shadow-2xl flex flex-col overflow-hidden font-mono backdrop-blur-md ${
         isFullscreen
           ? "fixed inset-3 z-50 md:inset-8"
           : "w-full max-w-5xl mx-auto h-[560px] md:h-[620px]"
-      }`}
+      } ${className}`}
       style={{
         backgroundColor: theme.bg,
         borderColor: theme.border,
@@ -722,10 +780,11 @@ export default function Terminal() {
               e.stopPropagation();
               resetTerminal();
             }}
-            title="Reset Terminal session"
-            className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600 transition-transform active:scale-90 flex items-center justify-center cursor-pointer shadow-sm group"
+            title="Close / Reset session"
+            aria-label="Close / Reset session"
+            className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] hover:brightness-110 active:scale-95 flex items-center justify-center cursor-pointer shadow-sm group"
           >
-            <span className="text-[8px] text-rose-950 font-bold opacity-0 group-hover:opacity-100">✕</span>
+            <span className="text-[8px] text-[#4c0000] font-bold opacity-0 group-hover:opacity-100">✕</span>
           </button>
           <button
             type="button"
@@ -734,9 +793,10 @@ export default function Terminal() {
               setIsMinimized(!isMinimized);
             }}
             title={isMinimized ? "Restore terminal" : "Minimize terminal"}
-            className="w-3.5 h-3.5 rounded-full bg-amber-500 hover:bg-amber-600 transition-transform active:scale-90 flex items-center justify-center cursor-pointer shadow-sm group"
+            aria-label={isMinimized ? "Restore terminal" : "Minimize terminal"}
+            className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] hover:brightness-110 active:scale-95 flex items-center justify-center cursor-pointer shadow-sm group"
           >
-            <span className="text-[8px] text-amber-950 font-bold opacity-0 group-hover:opacity-100">−</span>
+            <span className="text-[8px] text-[#593f00] font-bold opacity-0 group-hover:opacity-100">−</span>
           </button>
           <button
             type="button"
@@ -745,9 +805,10 @@ export default function Terminal() {
               setIsFullscreen(!isFullscreen);
             }}
             title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-            className="w-3.5 h-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 transition-transform active:scale-90 flex items-center justify-center cursor-pointer shadow-sm group"
+            aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+            className="w-3.5 h-3.5 rounded-full bg-[#27c93f] hover:brightness-110 active:scale-95 flex items-center justify-center cursor-pointer shadow-sm group"
           >
-            <span className="text-[8px] text-emerald-950 font-bold opacity-0 group-hover:opacity-100">+</span>
+            <span className="text-[8px] text-[#003b0c] font-bold opacity-0 group-hover:opacity-100">+</span>
           </button>
         </div>
 
@@ -755,13 +816,13 @@ export default function Terminal() {
         <div className="flex items-center gap-2 text-xs md:text-sm font-semibold opacity-90 truncate px-2">
           <TerminalIcon size={14} style={{ color: theme.accent }} />
           <span className="truncate">
-            govind@portfolio: <span style={{ color: theme.accent }}>{cwd}</span>
+            guest@portfolio: <span style={{ color: theme.accent }}>{cwd}</span>
           </span>
         </div>
 
         {/* Right actions */}
         <div className="flex items-center gap-2 text-xs">
-          {/* Quick theme selector pill */}
+          {/* Quick theme selector dropdown */}
           <select
             value={themeKey}
             onChange={(e) => {
@@ -814,7 +875,7 @@ export default function Terminal() {
               return (
                 <div key={entry.id} className="flex items-start gap-2 pt-1 font-mono text-xs md:text-sm">
                   <span className="font-semibold select-none flex-shrink-0" style={{ color: theme.promptUser }}>
-                    visitor@govind:
+                    visitor@portfolio:
                     <span style={{ color: theme.promptPath }}>{entry.cwd}</span>$
                   </span>
                   <span className="break-all font-medium" style={{ color: theme.commandText }}>
@@ -834,7 +895,7 @@ export default function Terminal() {
           {/* Active Input Line */}
           <div className="flex items-center gap-2 pt-1 font-mono text-xs md:text-sm">
             <span className="font-semibold select-none flex-shrink-0" style={{ color: theme.promptUser }}>
-              visitor@govind:
+              visitor@portfolio:
               <span style={{ color: theme.promptPath }}>{cwd}</span>$
             </span>
             <div className="relative flex-1 flex items-center">
@@ -848,7 +909,12 @@ export default function Terminal() {
                 spellCheck={false}
                 autoComplete="off"
                 className="w-full bg-transparent border-none outline-none font-mono text-xs md:text-sm p-0 m-0"
-                style={{ color: theme.commandText }}
+                style={{ color: theme.commandText, caretColor: theme.cursor }}
+              />
+              <span
+                className="terminal-block-cursor ml-1"
+                style={{ backgroundColor: theme.cursor }}
+                aria-hidden="true"
               />
             </div>
           </div>
@@ -860,26 +926,43 @@ export default function Terminal() {
       {/* Terminal Footer Bar */}
       {!isMinimized && (
         <div
-          className="px-4 py-2 border-t flex flex-wrap items-center justify-between text-[11px] opacity-70 select-none"
+          className="px-4 py-2 border-t flex flex-col sm:flex-row gap-2 items-center justify-between text-[11px] select-none"
           style={{ borderColor: theme.border, backgroundColor: theme.headerBg }}
         >
-          <div className="flex items-center gap-2">
-            <span>CLI v2.4</span>
-            <span>•</span>
-            <span>Type <strong className="underline font-mono">help</strong></span>
-            <span>•</span>
-            <span className="hidden sm:inline">Ctrl + L to clear</span>
+          {/* Quick command buttons pill bar */}
+          <div className="flex flex-wrap items-center gap-1.5 opacity-85">
+            <span className="text-[11px] opacity-60 mr-1">Quick:</span>
+            {["help", "projects", "skills", "experience", "contact", "theme matrix", "clear"].map((quickCmd) => (
+              <button
+                key={quickCmd}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  executeCommand(quickCmd);
+                }}
+                className="px-2 py-0.5 rounded text-[11px] font-mono border transition-all hover:scale-105 active:scale-95 cursor-pointer bg-black/20 hover:bg-white/10"
+                style={{ borderColor: theme.border, color: theme.accent }}
+              >
+                {quickCmd}
+              </button>
+            ))}
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Status info & shortcuts */}
+          <div className="flex items-center gap-2 opacity-70">
+            <span className="hidden md:inline">Ctrl + L clear</span>
+            <span className="hidden md:inline">•</span>
+            <span className="hidden sm:inline">Tab auto-complete</span>
+            <span className="hidden sm:inline">•</span>
             <button
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 clearScreen();
               }}
-              className="hover:underline flex items-center gap-1 cursor-pointer"
+              className="hover:underline flex items-center gap-1 cursor-pointer bg-transparent border-0 p-0 text-inherit font-mono"
             >
-              <RotateCcw size={10} /> Clear
+              <RotateCcw size={11} /> Clear
             </button>
           </div>
         </div>

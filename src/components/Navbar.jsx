@@ -6,6 +6,7 @@ const links = [
   { to: "projects", text: "Projects" },
   { to: "skills", text: "Skills" },
   { to: "experience", text: "Experience" },
+  { to: "playground", text: "Playground" },
   { to: "about", text: "Education" },
   { to: "certifications", text: "Certificates" },
   { to: "contact", text: "Contact" },

@@ -5,6 +5,7 @@ import About from "./pages/About.jsx";
 import Skills from "./pages/Skills.jsx";
 import Projects from "./pages/Projects.jsx";
 import Experience from "./pages/Experience.jsx";
+import Playground from "./pages/Playground.jsx";
 import Contact from "./pages/Contact.jsx";
 import Certifications from "./pages/Certifications.jsx";
 
@@ -18,6 +19,7 @@ function App() {
         <section id="projects" className="anchor-section"><Projects /></section>
         <section id="skills" className="anchor-section"><Skills /></section>
         <section id="experience" className="anchor-section"><Experience /></section>
+        <section id="playground" className="anchor-section"><Playground /></section>
         <section id="about" className="anchor-section"><About /></section>
         <section id="certifications" className="anchor-section"><Certifications /></section>
         <section id="contact" className="anchor-section"><Contact /></section>
