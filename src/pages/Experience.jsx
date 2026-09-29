@@ -12,7 +12,7 @@ const experienceData = [
       "Monitored system performance and implemented alerting mechanisms to proactively address issues.",
     ],
     skills: ["Docker", "Jenkins"],
-    logo: "/experience/wiseyak.svg",
+    logo: "/experience/wiseyak.png",
   },
   {
     role: "Software Engineer",
@@ -26,7 +26,7 @@ const experienceData = [
       "Designed scalable data models, repositories, and mappers for efficient content rendering, navigation, and maintainable code.",
     ],
     skills: ["Flutter", "REST APIs", "Provider", "Hive"],
-    logo: "/experience/karnovation.svg",
+    logo: "/experience/karnovation.png",
   },
   {
     role: "Student Ambassador",
