@@ -11,7 +11,7 @@ export default function Home() {
       >
         <div className="text-center md:text-left flex-1 m-15">
           <h2 className="text-3xl text-purple-400 font-semibold mb-2">Hey there, I'm</h2>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-purple-600 mb-4 leading-tight">
+          <h1 className=" text-5xl md:text-6xl font-extrabold text-purple-600 mb-4 leading-tight">
             Govind Kr Yadav
           </h1>
           <h3 className="text-2xl md:text-3xl font-semibold text-purple-800 mb-6">
@@ -83,7 +83,7 @@ export default function Home() {
                 Close
               </button>
             </div>
-            <iframe src="/details/Govind_Kr_Yadav_CV.pdf" title="Govind CV" className="w-full h-[calc(85vh-48px)]" />
+            <iframe src="/details/Govind_Kr_Yadav_CV.pdf" title="Govind Yadav CV" className="w-full h-[calc(85vh-48px)]" />
           </div>
         </div>
       )}
