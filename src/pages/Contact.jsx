@@ -17,13 +17,14 @@ export default function Contact() {
               <p>I’m open to opportunities and collaborations. Reach out by email or connect with me on LinkedIn and GitHub.</p>
             </header>
             <div className="contact-links">
-              {contactData.map(({ name, detail, link, Icon }) => {
-                const external = link.startsWith("https://");
+              {contactData.map((item) => {
+                const external = item.link.startsWith("https://");
+                const Icon = item.Icon;
                 return (
-                  <a className="contact-link" href={link} key={name} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+                  <a className="contact-link" href={item.link} key={item.name} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
                     <span>
-                      <span className="contact-name">{name}</span>
-                      <span className="contact-detail">{detail}</span>
+                      <span className="contact-name">{item.name}</span>
+                      <span className="contact-detail">{item.detail}</span>
                     </span>
                     <Icon size={19} aria-hidden="true" />
                     {external && <ArrowUpRight className="contact-external" size={14} aria-hidden="true" />}

@@ -10,7 +10,7 @@ import {
 } from "../data/terminalData";
 import { Terminal as TerminalIcon, Maximize2, Minimize2, RotateCcw, ExternalLink } from "lucide-react";
 
-export default function Terminal({ onExecuteExternal }) {
+export default function Terminal() {
   const [themeKey, setThemeKey] = useState("forest");
   const [cwd, setCwd] = useState("~");
   const [input, setInput] = useState("");
