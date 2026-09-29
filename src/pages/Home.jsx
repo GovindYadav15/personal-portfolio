@@ -41,7 +41,7 @@ export default function Home() {
         <span className="orbit-point orbit-point-b" aria-hidden="true" />
         <span className="orbit-point orbit-point-c" aria-hidden="true" />
         <div className="portrait-frame">
-          <img src="/details/govind_yadav.jpg" alt="Govind Kumar Yadav" fetchPriority="high" />
+          <img src="/details/govind_yadav.png" alt="Govind Kumar Yadav" fetchPriority="high" />
         </div>
         <span className="portrait-caption">Backend · DevOps</span>
       </div>

@@ -1,4 +1,4 @@
-﻿// src/data/terminalData.js
+// src/data/terminalData.js
 // Decoupled virtual file system and portfolio data for the interactive CLI terminal.
 
 export const BANNER = `
