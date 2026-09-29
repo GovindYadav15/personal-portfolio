@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
@@ -10,6 +11,18 @@ import Contact from "./pages/Contact.jsx";
 import Certifications from "./pages/Certifications.jsx";
 
 function App() {
+  useEffect(() => {
+    // On visit to the page, land directly on Playground section
+    if (!window.location.hash || window.location.hash === "#playground") {
+      const el = document.getElementById("playground");
+      if (el) {
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: "auto" });
+        });
+      }
+    }
+  }, []);
+
   return (
     <div className="portfolio-shell">
       <div className="site-field" aria-hidden="true" />

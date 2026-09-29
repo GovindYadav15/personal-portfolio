@@ -219,17 +219,17 @@ img { display: block; max-width: 100%; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 
-@keyframes terminalBlink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+.terminal-input,
+.terminal-input:focus,
+.terminal-input:focus-visible,
+.terminal-input:active {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
 }
-.terminal-block-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 1.15em;
-  vertical-align: text-bottom;
-  animation: terminalBlink 1s step-start infinite;
-}
+
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

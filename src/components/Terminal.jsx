@@ -49,20 +49,20 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
     },
   ]);
 
-  const terminalEndRef = useRef(null);
+  const terminalBodyRef = useRef(null);
   const inputRef = useRef(null);
   const containerRef = useRef(null);
 
-  // Auto-scroll to bottom on new output
+  // Auto-scroll internal terminal container to bottom on new output without moving outer page
   useEffect(() => {
-    if (!isMinimized) {
-      terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (!isMinimized && terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
     }
   }, [entries, isMinimized]);
 
-  // Focus input when clicking anywhere inside the terminal body
+  // Focus input when clicking anywhere inside the terminal body without jumping page
   const focusInput = () => {
-    inputRef.current?.focus();
+    inputRef.current?.focus({ preventScroll: true });
   };
 
   // Helper to resolve current VFS directory
@@ -857,7 +857,10 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
 
       {/* Terminal Screen Body */}
       {!isMinimized && (
-        <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-3 cursor-text select-text scroll-smooth">
+        <div
+          ref={terminalBodyRef}
+          className="flex-1 overflow-y-auto p-4 md:p-6 space-y-3 cursor-text select-text scroll-smooth"
+        >
           {entries.map((entry) => {
             if (entry.type === "banner") {
               return (
@@ -905,21 +908,22 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                autoFocus
                 spellCheck={false}
                 autoComplete="off"
-                className="w-full bg-transparent border-none outline-none font-mono text-xs md:text-sm p-0 m-0"
-                style={{ color: theme.commandText, caretColor: theme.cursor }}
-              />
-              <span
-                className="terminal-block-cursor ml-1"
-                style={{ backgroundColor: theme.cursor }}
-                aria-hidden="true"
+                autoCorrect="off"
+                autoCapitalize="off"
+                className="terminal-input w-full bg-transparent border-0 outline-none font-mono text-xs md:text-sm p-0 m-0"
+                style={{
+                  color: theme.commandText,
+                  caretColor: theme.cursor,
+                  outline: "none",
+                  border: "none",
+                  boxShadow: "none",
+                  background: "transparent",
+                }}
               />
             </div>
           </div>
-
-          <div ref={terminalEndRef} />
         </div>
       )}
 
