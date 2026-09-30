@@ -21,28 +21,61 @@ export default function Navbar() {
   };
 
   return (
-    <header className="site-header">
-      <nav className="site-container nav-rail" aria-label="Main navigation">
-        <a className="wordmark" href="#home" onClick={(event) => { event.preventDefault(); handleScroll("home"); }}>
-          Govind <span>Yadav</span>
+    <header className="sticky top-0 z-50 border-b border-line bg-field/90 backdrop-blur-md transition-colors duration-200">
+      <nav
+        className="max-w-[1240px] w-[calc(100%-36px)] sm:w-[calc(100%-44px)] md:w-[calc(100%-64px)] mx-auto min-h-[68px] md:min-h-[76px] flex justify-between items-center gap-7"
+        aria-label="Main navigation"
+      >
+        <a
+          className="text-ink font-serif font-medium text-xl leading-none tracking-[-0.035em] whitespace-nowrap"
+          href="#home"
+          onClick={(event) => {
+            event.preventDefault();
+            handleScroll("home");
+          }}
+        >
+          Govind <span className="text-signal">Yadav</span>
         </a>
-        <div className="nav-links">
+        <div className="hidden md:flex items-center gap-4 lg:gap-7">
           {links.map((link) => (
-            <button key={link.to} type="button" onClick={() => handleScroll(link.to)}>{link.text}</button>
+            <button
+              key={link.to}
+              type="button"
+              onClick={() => handleScroll(link.to)}
+              className="py-2 px-0 bg-transparent border-0 text-ink-soft text-xs font-medium cursor-pointer transition-colors hover:text-signal"
+            >
+              {link.text}
+            </button>
           ))}
           <ThemeToggle />
         </div>
-        <button className="nav-menu-toggle" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close navigation menu" : "Open navigation menu"}>
+        <button
+          className="grid md:hidden place-items-center w-[42px] h-[42px] border border-line-strong bg-transparent text-ink cursor-pointer hover:border-signal transition-colors"
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        >
           {open ? <X size={21} aria-hidden="true" /> : <Menu size={21} aria-hidden="true" />}
         </button>
       </nav>
       {open && (
-        <div className="mobile-nav-panel" id="mobile-navigation">
-          <div className="site-container mobile-nav-content">
+        <div className="md:hidden border-t border-line bg-field/95 backdrop-blur-md" id="mobile-navigation">
+          <div className="max-w-[1240px] w-[calc(100%-36px)] sm:w-[calc(100%-44px)] md:w-[calc(100%-64px)] mx-auto grid py-3 pb-5 gap-1">
             {links.map((link) => (
-              <button key={link.to} type="button" onClick={() => handleScroll(link.to)}>{link.text}</button>
+              <button
+                key={link.to}
+                type="button"
+                onClick={() => handleScroll(link.to)}
+                className="py-2.5 px-0 text-left bg-transparent border-0 text-ink-soft text-sm font-medium cursor-pointer transition-colors hover:text-signal"
+              >
+                {link.text}
+              </button>
             ))}
-            <ThemeToggle showLabel />
+            <div className="pt-2">
+              <ThemeToggle showLabel />
+            </div>
           </div>
         </div>
       )}

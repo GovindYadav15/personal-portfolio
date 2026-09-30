@@ -912,7 +912,7 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
-                className="terminal-input w-full bg-transparent border-0 outline-none font-mono text-xs md:text-sm p-0 m-0"
+                className="w-full bg-transparent border-0 outline-none focus:outline-none focus:ring-0 shadow-none font-mono text-xs md:text-sm p-0 m-0"
                 style={{
                   color: theme.commandText,
                   caretColor: theme.cursor,

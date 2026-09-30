@@ -24,18 +24,21 @@ function App() {
   }, []);
 
   return (
-    <div className="portfolio-shell">
-      <div className="site-field" aria-hidden="true" />
+    <div className="relative isolate overflow-clip min-h-screen bg-field text-ink transition-colors duration-300">
+      <div
+        className="absolute -z-10 inset-x-0 top-0 h-[min(100vh,900px)] pointer-events-none opacity-25 bg-[radial-gradient(ellipse_at_78%_18%,rgba(87,126,88,0.16),transparent_42%),linear-gradient(to_right,transparent_calc(50%-0.5px),var(--line)_50%,transparent_calc(50%+0.5px))] [mask-image:linear-gradient(to_bottom,#000,transparent_82%)]"
+        aria-hidden="true"
+      />
       <Navbar />
       <main>
-        <section id="home" className="anchor-section"><Home /></section>
-        <section id="projects" className="anchor-section"><Projects /></section>
-        <section id="skills" className="anchor-section"><Skills /></section>
-        <section id="experience" className="anchor-section"><Experience /></section>
-        <section id="playground" className="anchor-section"><Playground /></section>
-        <section id="about" className="anchor-section"><About /></section>
-        <section id="certifications" className="anchor-section"><Certifications /></section>
-        <section id="contact" className="anchor-section"><Contact /></section>
+        <section id="home" className="scroll-mt-[86px]"><Home /></section>
+        <section id="projects" className="scroll-mt-[86px]"><Projects /></section>
+        <section id="skills" className="scroll-mt-[86px]"><Skills /></section>
+        <section id="experience" className="scroll-mt-[86px]"><Experience /></section>
+        <section id="playground" className="scroll-mt-[86px]"><Playground /></section>
+        <section id="about" className="scroll-mt-[86px]"><About /></section>
+        <section id="certifications" className="scroll-mt-[86px]"><Certifications /></section>
+        <section id="contact" className="scroll-mt-[86px]"><Contact /></section>
       </main>
       <Footer />
     </div>
