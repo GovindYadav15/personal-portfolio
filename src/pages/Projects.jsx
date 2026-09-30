@@ -8,7 +8,7 @@ const projectsData = [
     date: "Feb 2026",
     description: "Designed and implemented a complete CI/CD pipeline to automate the build, test, and deployment of a containerized Node.js application using GitHub Actions. Containerized with Docker and deployed on AWS EC2 with Nginx as a reverse proxy, enabling zero-downtime deployments. Automated infrastructure provisioning using shell scripting and AWS services (EC2, IAM, Security Groups), with AWS CloudWatch monitoring.",
     stack: ["AWS EC2", "Docker", "GitHub Actions", "Nginx", "IAM", "CloudWatch"],
-    image: "/projects/sports-arena.png",
+    image: "/projects/devops-pipeline.svg",
     link: "https://github.com/GovindYadav15/DevOps-Pipeline-AWS",
   },
   {
@@ -35,7 +35,7 @@ const projectsData = [
     date: "Feb 2026",
     description: "Developed a learner-focused Flutter mobile application for AWS Pathway, enabling students to practice AWS certification exams, take timed mock tests, read learning materials, participate in discussion forums, and track performance analytics through a seamless UI.",
     stack: ["Flutter", "Dart", "FastAPI", "Dio", "Provider", "Clean Architecture"],
-    image: "/projects/progress-feed.png",
+    image: "/projects/aws-pathway.svg",
     link: "https://github.com/GovindYadav15/AWS-Pathway-App",
   },
   {
@@ -114,11 +114,8 @@ export default function Projects() {
                 Open repository <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </div>
-            <div className="relative min-h-[220px] md:min-h-[300px] grid place-items-center bg-field border-t lg:border-t-0 lg:border-l border-line overflow-hidden">
-              <img key={project.image} className="relative z-0 w-full h-full min-h-[220px] md:min-h-[300px] object-cover saturate-75" src={project.image} alt={`${project.title} project`} loading="lazy" />
-              <span className="absolute z-10 w-[min(78%,320px)] aspect-square border border-ink/40 rounded-full pointer-events-none" aria-hidden="true" />
-              <span className="absolute z-10 w-[min(49%,202px)] aspect-square border border-dashed border-ink/50 rounded-full pointer-events-none" aria-hidden="true" />
-              <span className="absolute z-20 top-[24%] left-[29%] w-2 h-2 border-2 border-field rounded-full bg-signal ring-1 ring-signal" aria-hidden="true" />
+            <div className="relative min-h-[220px] md:min-h-[300px] flex items-center justify-center bg-field border-t lg:border-t-0 lg:border-l border-line overflow-hidden">
+              <img key={project.image} className="w-full h-full min-h-[220px] md:min-h-[300px] object-cover" src={project.image} alt={`${project.title} project`} loading="lazy" />
             </div>
           </article>
         </div>

@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560">
+  <defs>
+    <style>
+      .bg { fill: #0b0f19; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; fill: #ffffff; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 400; fill: #94a3b8; }
+      .text-accent { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; fill: #ff9900; }
+      .text-teal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; fill: #38bdf8; }
+      .text-green { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; fill: #4ade80; }
+      .phone-border { stroke: #334155; stroke-width: 2; fill: #0f172a; }
+      .card-bg { fill: #1e293b; stroke: #334155; stroke-width: 1; }
+      .tag-bg { fill: #1e293b; stroke: #475569; stroke-width: 1; }
+      .tag-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 500; fill: #cbd5e1; }
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+    </style>
+    <linearGradient id="primaryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff9900" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+    <linearGradient id="phoneGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="560" class="bg" />
+
+  <!-- Subtle Blueprint Tech Lines -->
+  <g stroke="#1e293b" stroke-width="0.75" stroke-dasharray="4 8" opacity="0.6">
+    <line x1="0" y1="140" x2="1200" y2="140" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+    <line x1="0" y1="420" x2="1200" y2="420" />
+    <line x1="430" y1="0" x2="430" y2="560" />
+  </g>
+
+  <!-- Left Side: Mobile Phone Device Frame -->
+  <g transform="translate(64, 28)">
+    <!-- Device Exterior Frame -->
+    <rect x="0" y="0" width="310" height="504" rx="36" fill="url(#phoneGrad)" class="phone-border" />
+
+    <!-- Speaker notch / camera bar -->
+    <rect x="105" y="10" width="100" height="14" rx="7" fill="#020617" stroke="#1e293b" stroke-width="1" />
+    <circle cx="178" cy="17" r="3.5" fill="#1e293b" />
+    <line x1="126" y1="17" x2="156" y2="17" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Mobile Screen Content -->
+    <!-- Top status bar -->
+    <text x="32" y="38" class="text-sub mono" font-size="11" font-weight="600">9:41</text>
+    <g transform="translate(254, 30)">
+      <!-- WiFi & battery icon -->
+      <path d="M 0 6 A 6 6 0 0 1 10 6" stroke="#94a3b8" stroke-width="1.4" fill="none" />
+      <rect x="16" y="2" width="16" height="8" rx="2" stroke="#94a3b8" stroke-width="1.2" fill="none" />
+      <rect x="18" y="4" width="10" height="4" rx="1" fill="#4ade80" />
+    </g>
+
+    <!-- App Bar -->
+    <g transform="translate(24, 48)">
+      <rect x="0" y="0" width="28" height="28" rx="8" fill="url(#primaryGrad)" />
+      <!-- Cloud icon -->
+      <path d="M 7 17 a 4 4 0 0 1 3 -6 a 5 5 0 0 1 8 0 a 4 4 0 0 1 3 6 z" fill="#ffffff" />
+      <text x="36" y="19" class="text-title" font-size="15">AWS Pathway</text>
+      <circle cx="246" cy="14" r="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="246" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#38bdf8" font-weight="bold">GY</text>
+    </g>
+
+    <!-- Streak / Daily Goal Banner -->
+    <g transform="translate(20, 90)">
+      <rect x="0" y="0" width="270" height="42" rx="10" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+      <text x="14" y="26" font-size="15">🔥</text>
+      <text x="36" y="21" class="text-title" font-size="11" font-weight="600">14-Day Study Streak</text>
+      <text x="36" y="33" class="text-sub" font-size="9.5">Target: Solutions Architect Exam</text>
+      <rect x="206" y="11" width="50" height="20" rx="10" fill="#ff9900" opacity="0.15" />
+      <text x="231" y="25" text-anchor="middle" class="text-accent" font-size="10" font-weight="700">78% Ready</text>
+    </g>
+
+    <!-- Card 1: Solutions Architect Mock Exam -->
+    <g transform="translate(20, 142)">
+      <rect x="0" y="0" width="270" height="124" rx="12" class="card-bg" />
+      <rect x="14" y="12" width="62" height="18" rx="4" fill="#0284c7" opacity="0.2" />
+      <text x="45" y="24" text-anchor="middle" class="text-teal" font-size="9.5" font-weight="600">SAA-C03</text>
+      <text x="82" y="24" class="text-sub mono" font-size="9.5">Mock Test #4</text>
+      <text x="14" y="48" class="text-title" font-size="13">AWS Solutions Architect</text>
+      <text x="14" y="64" class="text-sub" font-size="10.5">65 Questions · 130 min · Realistic Timed</text>
+
+      <!-- Progress bar -->
+      <rect x="14" y="76" width="242" height="6" rx="3" fill="#0f172a" />
+      <rect x="14" y="76" width="194" height="6" rx="3" fill="url(#primaryGrad)" />
+
+      <!-- Button -->
+      <rect x="14" y="90" width="242" height="24" rx="6" fill="url(#primaryGrad)" />
+      <text x="135" y="106" text-anchor="middle" font-family="sans-serif" font-size="10.5" font-weight="700" fill="#0f172a">Resume Mock Exam (Q 48/65)</text>
+    </g>
+
+    <!-- Card 2: Cloud Practitioner Quiz Completed -->
+    <g transform="translate(20, 276)">
+      <rect x="0" y="0" width="270" height="88" rx="12" class="card-bg" />
+      <rect x="14" y="12" width="60" height="18" rx="4" fill="#15803d" opacity="0.2" />
+      <text x="44" y="24" text-anchor="middle" class="text-green" font-size="9.5" font-weight="600">CLF-C02</text>
+      <text x="80" y="24" class="text-sub mono" font-size="9.5">Domain Quiz</text>
+      <text x="14" y="48" class="text-title" font-size="12.5">Cloud Security &amp; Compliance</text>
+      <text x="14" y="66" class="text-sub" font-size="10">25 Questions · Score: <tspan fill="#4ade80" font-weight="bold">94% Passed ✓</tspan></text>
+      <!-- Score Circle -->
+      <circle cx="236" cy="44" r="16" fill="#020617" stroke="#4ade80" stroke-width="2.5" />
+      <text x="236" y="48" text-anchor="middle" class="text-green" font-size="10" font-weight="bold">94%</text>
+    </g>
+
+    <!-- Card 3: Domain Mastery Analytics Mini -->
+    <g transform="translate(20, 374)">
+      <rect x="0" y="0" width="270" height="54" rx="10" class="card-bg" />
+      <text x="14" y="20" class="text-sub" font-size="10" font-weight="600">Domain Mastery</text>
+      <!-- Bars -->
+      <text x="14" y="38" class="text-sub mono" font-size="8.5">Compute</text>
+      <rect x="58" y="31" width="55" height="5" rx="2" fill="#ff9900" />
+      <text x="140" y="38" class="text-sub mono" font-size="8.5">Security</text>
+      <rect x="180" y="31" width="60" height="5" rx="2" fill="#38bdf8" />
+    </g>
+
+    <!-- Bottom Mobile Nav Bar -->
+    <g transform="translate(0, 442)">
+      <line x1="0" y1="0" x2="310" y2="0" stroke="#1e293b" stroke-width="1" />
+      <g transform="translate(26, 16)">
+        <text x="18" y="16" text-anchor="middle" class="text-accent" font-size="10" font-weight="700">Practice</text>
+        <circle cx="18" cy="22" r="2" fill="#ff9900" />
+      </g>
+      <g transform="translate(98, 16)">
+        <text x="18" y="16" text-anchor="middle" class="text-sub" font-size="10">Exams</text>
+      </g>
+      <g transform="translate(170, 16)">
+        <text x="18" y="16" text-anchor="middle" class="text-sub" font-size="10">Forums</text>
+      </g>
+      <g transform="translate(242, 16)">
+        <text x="18" y="16" text-anchor="middle" class="text-sub" font-size="10">Analytics</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Side: Project Architecture & Feature Highlights -->
+  <g transform="translate(430, 48)">
+    <!-- Badge -->
+    <rect x="0" y="0" width="138" height="24" rx="12" fill="#ff9900" opacity="0.15" />
+    <text x="69" y="16" text-anchor="middle" class="text-accent" font-size="11" font-weight="700">MOBILE APPLICATION</text>
+
+    <!-- Project Title -->
+    <text x="0" y="62" class="text-title" font-size="34">AWS Pathway</text>
+    <text x="0" y="90" class="text-teal" font-size="16" font-weight="500">Cloud Exam Preparation &amp; Performance Analytics App</text>
+    <text x="0" y="120" class="text-sub" font-size="13.5">Learner-focused Flutter mobile application powered by a FastAPI backend,</text>
+    <text x="0" y="140" class="text-sub" font-size="13.5">enabling timed AWS certification exams, domain quizzes, and interactive analytics.</text>
+
+    <!-- 3 Key Architecture Highlights Cards -->
+    <g transform="translate(0, 168)">
+      <!-- Box 1 -->
+      <rect x="0" y="0" width="340" height="66" rx="8" class="card-bg" />
+      <circle cx="28" cy="33" r="16" fill="#0284c7" opacity="0.2" />
+      <path d="M 22 33 l 4 4 l 8 -8" stroke="#38bdf8" stroke-width="2" fill="none" />
+      <text x="56" y="27" class="text-title" font-size="13">Clean Architecture &amp; Provider</text>
+      <text x="56" y="47" class="text-sub" font-size="11.5">Repository pattern, Dio HTTP client, state separation</text>
+
+      <!-- Box 2 -->
+      <rect x="360" y="0" width="340" height="66" rx="8" class="card-bg" />
+      <circle cx="388" cy="33" r="16" fill="#ff9900" opacity="0.2" />
+      <path d="M 382 33 l 4 4 l 8 -8" stroke="#ff9900" stroke-width="2" fill="none" />
+      <text x="416" y="27" class="text-title" font-size="13">FastAPI High-Speed Backend</text>
+      <text x="416" y="47" class="text-sub" font-size="11.5">Secure JWT authentication, OAuth, async endpoints</text>
+
+      <!-- Box 3 -->
+      <rect x="0" y="80" width="340" height="66" rx="8" class="card-bg" />
+      <circle cx="28" cy="113" r="16" fill="#15803d" opacity="0.2" />
+      <path d="M 22 113 l 4 4 l 8 -8" stroke="#4ade80" stroke-width="2" fill="none" />
+      <text x="56" y="107" class="text-title" font-size="13">Timed Exam Engine &amp; Resume-Safe</text>
+      <text x="56" y="127" class="text-sub" font-size="11.5">Server-driven test countdowns with persistence</text>
+
+      <!-- Box 4 -->
+      <rect x="360" y="80" width="340" height="66" rx="8" class="card-bg" />
+      <circle cx="388" cy="113" r="16" fill="#a855f7" opacity="0.2" />
+      <path d="M 382 113 l 4 4 l 8 -8" stroke="#c084fc" stroke-width="2" fill="none" />
+      <text x="416" y="107" class="text-title" font-size="13">Real-Time Domain Analytics</text>
+      <text x="416" y="127" class="text-sub" font-size="11.5">Identify exam weaknesses &amp; readiness indicators</text>
+    </g>
+
+    <!-- Tech Stack Pill Tags -->
+    <g transform="translate(0, 344)">
+      <text x="0" y="16" class="text-sub" font-size="12" font-weight="600">TECHNOLOGIES &amp; LIBRARIES</text>
+      <g transform="translate(0, 30)">
+        <rect x="0" y="0" width="64" height="26" rx="6" class="tag-bg" />
+        <text x="32" y="17" text-anchor="middle" class="tag-text">Flutter</text>
+
+        <rect x="72" y="0" width="54" height="26" rx="6" class="tag-bg" />
+        <text x="99" y="17" text-anchor="middle" class="tag-text">Dart</text>
+
+        <rect x="134" y="0" width="68" height="26" rx="6" class="tag-bg" />
+        <text x="168" y="17" text-anchor="middle" class="tag-text">FastAPI</text>
+
+        <rect x="210" y="0" width="48" height="26" rx="6" class="tag-bg" />
+        <text x="234" y="17" text-anchor="middle" class="tag-text">Dio</text>
+
+        <rect x="266" y="0" width="76" height="26" rx="6" class="tag-bg" />
+        <text x="304" y="17" text-anchor="middle" class="tag-text">Provider</text>
+
+        <rect x="350" y="0" width="138" height="26" rx="6" class="tag-bg" />
+        <text x="419" y="17" text-anchor="middle" class="tag-text">Clean Architecture</text>
+
+        <rect x="496" y="0" width="88" height="26" rx="6" class="tag-bg" />
+        <text x="540" y="17" text-anchor="middle" class="tag-text">REST APIs</text>
+      </g>
+    </g>
+
+    <!-- Footer metadata note -->
+    <g transform="translate(0, 432)">
+      <line x1="0" y1="0" x2="700" y2="0" stroke="#1e293b" stroke-width="1" />
+      <text x="0" y="24" class="text-sub" font-size="11.5">Developed as Flutter Developer Intern at Karnovation Inc. · Integrated with AWS Certification curriculum</text>
+    </g>
+  </g>
+</svg>

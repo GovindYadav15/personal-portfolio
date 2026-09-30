@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .border { stroke: #30363d; stroke-width: 1; fill: none; }
+      .header-bg { fill: #161b22; }
+      .text-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #e6edf3; }
+      .text-muted { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #7d8590; }
+      .text-link { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #2f81f7; }
+      .text-green { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #3fb950; }
+      .tag-bg { fill: #1f293d; stroke: #388bfd; stroke-opacity: 0.3; }
+      .tag-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: #58a6ff; }
+      .file-row:hover { fill: #161b22; }
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+    </style>
+    <clipPath id="avatar-clip">
+      <circle cx="44" cy="98" r="13" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="560" class="bg" />
+
+  <!-- Top Navigation / Repository Header -->
+  <rect x="0" y="0" width="1200" height="66" class="header-bg" />
+  <line x1="0" y1="66" x2="1200" y2="66" stroke="#30363d" stroke-width="1" />
+
+  <!-- Repo Icon -->
+  <path d="M 32 24 h 16 v 18 h -16 z" fill="none" />
+  <path d="M 34 26 h 12 a 2 2 0 0 1 2 2 v 14 a 2 2 0 0 1 -2 2 h -12 a 2 2 0 0 1 -2 -2 v -14 a 2 2 0 0 1 2 -2 z" stroke="#7d8590" stroke-width="1.6" fill="none" />
+  <path d="M 38 23 v 5" stroke="#7d8590" stroke-width="1.6" />
+
+  <!-- Repo Breadcrumbs -->
+  <text x="56" y="38" class="text-link" font-size="16" font-weight="400">GovindYadav15</text>
+  <text x="168" y="38" class="text-muted" font-size="16">/</text>
+  <text x="180" y="38" class="text-main" font-size="16" font-weight="600">DevOps-Pipeline-AWS</text>
+
+  <!-- Public Badge -->
+  <rect x="368" y="23" width="58" height="22" rx="11" fill="none" stroke="#30363d" stroke-width="1" />
+  <text x="379" y="38" class="text-muted" font-size="12" font-weight="500">Public</text>
+
+  <!-- Repo Actions (Buttons) -->
+  <g transform="translate(860, 22)">
+    <!-- Watch Button -->
+    <rect x="0" y="0" width="82" height="26" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+    <text x="24" y="17" class="text-main" font-size="12" font-weight="500">Watch</text>
+    <text x="66" y="17" class="text-muted" font-size="11">1</text>
+
+    <!-- Fork Button -->
+    <rect x="92" y="0" width="76" height="26" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+    <text x="114" y="17" class="text-main" font-size="12" font-weight="500">Fork</text>
+    <text x="148" y="17" class="text-muted" font-size="11">0</text>
+
+    <!-- Star Button -->
+    <rect x="178" y="0" width="82" height="26" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+    <path d="M 191 17 l 2 -5 l 2 5 l -4 -3 h 5 l -4 3 z" fill="#e3b341" />
+    <text x="202" y="17" class="text-main" font-size="12" font-weight="500">Starred</text>
+    <text x="248" y="17" class="text-muted" font-size="11">2</text>
+  </g>
+
+  <!-- Main Content Box Grid -->
+  <g transform="translate(28, 80)">
+    <!-- File Container Box -->
+    <rect x="0" y="0" width="790" height="400" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1" />
+
+    <!-- Commit Header Bar -->
+    <rect x="0" y="0" width="790" height="42" rx="6" fill="#161b22" />
+    <line x1="0" y1="42" x2="790" y2="42" stroke="#30363d" stroke-width="1" />
+
+    <!-- Committer Avatar & Info -->
+    <circle cx="24" cy="21" r="11" fill="#30363d" />
+    <text x="24" y="25" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#e6edf3" font-weight="600">G</text>
+    <text x="44" y="25" class="text-main" font-size="13" font-weight="600">GovindYadav15</text>
+    <text x="148" y="25" class="text-muted" font-size="13">feat: automated CI/CD pipeline, Dockerization &amp; EC2 deployment</text>
+    <text x="680" y="25" class="text-muted mono" font-size="11">e7b39a1</text>
+    <text x="734" y="25" class="text-muted" font-size="12">14 commits</text>
+
+    <!-- File Rows -->
+    <!-- Row 1: .github/workflows -->
+    <g transform="translate(0, 42)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 20 12 h 7 l 2 3 h 9 a 2 2 0 0 1 2 2 v 9 a 2 2 0 0 1 -2 2 h -18 a 2 2 0 0 1 -2 -2 v -12 a 2 2 0 0 1 2 -2 z" fill="#54aeff" opacity="0.85" />
+      <text x="46" y="23" class="text-main" font-size="13">.github/workflows</text>
+      <text x="230" y="23" class="text-muted" font-size="12">deploy.yml: build, test, docker, and AWS EC2 release</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 2: docker -->
+    <g transform="translate(0, 78)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 20 12 h 7 l 2 3 h 9 a 2 2 0 0 1 2 2 v 9 a 2 2 0 0 1 -2 2 h -18 a 2 2 0 0 1 -2 -2 v -12 a 2 2 0 0 1 2 -2 z" fill="#54aeff" opacity="0.85" />
+      <text x="46" y="23" class="text-main" font-size="13">docker</text>
+      <text x="230" y="23" class="text-muted" font-size="12">production Dockerfile and multi-stage container specs</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 3: nginx -->
+    <g transform="translate(0, 114)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 20 12 h 7 l 2 3 h 9 a 2 2 0 0 1 2 2 v 9 a 2 2 0 0 1 -2 2 h -18 a 2 2 0 0 1 -2 -2 v -12 a 2 2 0 0 1 2 -2 z" fill="#54aeff" opacity="0.85" />
+      <text x="46" y="23" class="text-main" font-size="13">nginx</text>
+      <text x="230" y="23" class="text-muted" font-size="12">nginx.conf: reverse proxy, rate limiting, and SSL termination</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 4: scripts -->
+    <g transform="translate(0, 150)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 20 12 h 7 l 2 3 h 9 a 2 2 0 0 1 2 2 v 9 a 2 2 0 0 1 -2 2 h -18 a 2 2 0 0 1 -2 -2 v -12 a 2 2 0 0 1 2 -2 z" fill="#54aeff" opacity="0.85" />
+      <text x="46" y="23" class="text-main" font-size="13">scripts</text>
+      <text x="230" y="23" class="text-muted" font-size="12">ec2-setup.sh and zero-downtime deployment triggers</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 5: src -->
+    <g transform="translate(0, 186)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 20 12 h 7 l 2 3 h 9 a 2 2 0 0 1 2 2 v 9 a 2 2 0 0 1 -2 2 h -18 a 2 2 0 0 1 -2 -2 v -12 a 2 2 0 0 1 2 -2 z" fill="#54aeff" opacity="0.85" />
+      <text x="46" y="23" class="text-main" font-size="13">src</text>
+      <text x="230" y="23" class="text-muted" font-size="12">Express.js API server with healthcheck endpoint</text>
+      <text x="710" y="23" class="text-muted" font-size="11">3 weeks ago</text>
+    </g>
+
+    <!-- Row 6: Dockerfile -->
+    <g transform="translate(0, 222)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 21 11 h 11 l 4 4 v 12 a 2 2 0 0 1 -2 2 h -13 a 2 2 0 0 1 -2 -2 v -14 a 2 2 0 0 1 2 -2 z" fill="none" stroke="#7d8590" stroke-width="1.4" />
+      <text x="46" y="23" class="text-main" font-size="13">Dockerfile</text>
+      <text x="230" y="23" class="text-muted" font-size="12">alpine-based multi-stage containerization</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 7: docker-compose.yml -->
+    <g transform="translate(0, 258)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 21 11 h 11 l 4 4 v 12 a 2 2 0 0 1 -2 2 h -13 a 2 2 0 0 1 -2 -2 v -14 a 2 2 0 0 1 2 -2 z" fill="none" stroke="#7d8590" stroke-width="1.4" />
+      <text x="46" y="23" class="text-main" font-size="13">docker-compose.yml</text>
+      <text x="230" y="23" class="text-muted" font-size="12">orchestrate backend service with nginx reverse proxy</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 8: README.md -->
+    <g transform="translate(0, 294)">
+      <line x1="0" y1="36" x2="790" y2="36" stroke="#21262d" stroke-width="1" />
+      <path d="M 21 11 h 11 l 4 4 v 12 a 2 2 0 0 1 -2 2 h -13 a 2 2 0 0 1 -2 -2 v -14 a 2 2 0 0 1 2 -2 z" fill="none" stroke="#7d8590" stroke-width="1.4" />
+      <text x="46" y="23" class="text-main" font-size="13">README.md</text>
+      <text x="230" y="23" class="text-muted" font-size="12">add architecture diagram, EC2 specs and setup guide</text>
+      <text x="710" y="23" class="text-muted" font-size="11">2 weeks ago</text>
+    </g>
+
+    <!-- Row 9: CI/CD Status banner -->
+    <g transform="translate(0, 332)">
+      <rect x="0" y="0" width="790" height="68" fill="#161b22" rx="0 0 6 6" />
+      <!-- CI Pipeline summary -->
+      <circle cx="26" cy="34" r="8" fill="#238636" />
+      <path d="M 22 34 l 3 3 l 6 -6" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round" />
+      <text x="44" y="30" class="text-main" font-size="12" font-weight="600">GitHub Actions Pipeline · All checks have passed</text>
+      <text x="44" y="48" class="text-muted" font-size="11">Workflow: Build &amp; Test (42s) → Docker Build &amp; ECR (1m 12s) → Deploy to AWS EC2 (28s)</text>
+      <rect x="686" y="22" width="88" height="24" rx="12" fill="#238636" opacity="0.2" />
+      <text x="730" y="38" text-anchor="middle" class="text-green" font-size="11" font-weight="600">Passed ✓</text>
+    </g>
+
+    <!-- Right Sidebar (About Repository) -->
+    <g transform="translate(820, 4)">
+      <text x="0" y="16" class="text-main" font-size="15" font-weight="600">About</text>
+      <text x="0" y="44" class="text-main" font-size="13" font-weight="400">Complete CI/CD pipeline automation for</text>
+      <text x="0" y="64" class="text-main" font-size="13" font-weight="400">containerized Node.js app using GitHub</text>
+      <text x="0" y="84" class="text-main" font-size="13" font-weight="400">Actions, Docker, AWS EC2 &amp; Nginx proxy.</text>
+
+      <!-- Topic Pills -->
+      <g transform="translate(0, 108)">
+        <!-- Tag 1 -->
+        <rect x="0" y="0" width="70" height="22" rx="11" class="tag-bg" />
+        <text x="35" y="15" text-anchor="middle" class="tag-text">aws-ec2</text>
+
+        <!-- Tag 2 -->
+        <rect x="76" y="0" width="56" height="22" rx="11" class="tag-bg" />
+        <text x="104" y="15" text-anchor="middle" class="tag-text">docker</text>
+
+        <!-- Tag 3 -->
+        <rect x="138" y="0" width="98" height="22" rx="11" class="tag-bg" />
+        <text x="187" y="15" text-anchor="middle" class="tag-text">github-actions</text>
+
+        <!-- Row 2 Tags -->
+        <rect x="0" y="28" width="52" height="22" rx="11" class="tag-bg" />
+        <text x="26" y="43" text-anchor="middle" class="tag-text">nginx</text>
+
+        <rect x="58" y="28" width="46" height="22" rx="11" class="tag-bg" />
+        <text x="81" y="43" text-anchor="middle" class="tag-text">ci-cd</text>
+
+        <rect x="110" y="28" width="58" height="22" rx="11" class="tag-bg" />
+        <text x="139" y="43" text-anchor="middle" class="tag-text">devops</text>
+
+        <rect x="174" y="28" width="80" height="22" rx="11" class="tag-bg" />
+        <text x="214" y="43" text-anchor="middle" class="tag-text">cloudwatch</text>
+      </g>
+
+      <!-- Resources Links -->
+      <g transform="translate(0, 196)">
+        <text x="0" y="0" class="text-muted" font-size="12">Readme</text>
+        <text x="0" y="26" class="text-muted" font-size="12">MIT license</text>
+        <text x="0" y="52" class="text-muted" font-size="12">Activity</text>
+        <text x="0" y="78" class="text-muted" font-size="12">1 star · 0 watching · 0 forks</text>
+      </g>
+
+      <!-- Environments section -->
+      <g transform="translate(0, 310)">
+        <text x="0" y="14" class="text-main" font-size="13" font-weight="600">Environments</text>
+        <circle cx="6" cy="36" r="4" fill="#3fb950" />
+        <text x="18" y="40" class="text-link" font-size="13" font-weight="500">production</text>
+        <text x="18" y="58" class="text-muted" font-size="11">Active on AWS EC2 (ap-south-1)</text>
+      </g>
+    </g>
+  </g>
+</svg>

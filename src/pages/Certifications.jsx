@@ -5,19 +5,27 @@ const certificationsData = [
     title: "AWS Certified Solution Architect Associate",
     issuer: "Amazon Web Services (AWS)",
     year: "Feb 02, 2026",
-    image: "/certificates/cf2.png",
+    image: "/certificates/aws-saa-badge.png",
+    isBadge: true,
   },
   {
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services (AWS)",
     year: "Dec 09, 2025",
-    image: "/certificates/cf1.png",
+    image: "/certificates/aws-cpc-badge.png",
+    isBadge: true,
   },
   {
-    title: "DevOps for beginners: Docker, K8S, Cloud, CI/CD & 4 Projects",
-    issuer: "Udemy · DevOps Engineering",
-    year: "Dec 2025",
-    image: "/certificates/cf7.jpg",
+    title: "DevOps for beginners: Docker, K8s, Cloud, CI/CD & 4 Projects",
+    issuer: "Udemy, Instructed by Pravin Mishra",
+    year: "Dec 10, 2025",
+    image: "/certificates/devops.jpg",
+  },
+  {
+    title: "AWS Cloud Foundations Course",
+    issuer: "AWS Academy · AWS Cloud Club Nepal",
+    year: "September 2025",
+    image: "/certificates/cf2.png",
   },
   {
     title: "Build a Backend REST API with Node JS from Scratch",
@@ -34,7 +42,7 @@ const certificationsData = [
   {
     title: "AWS Fellowship: Cohort 1",
     issuer: "AWS Cloud Club Nepal",
-    year: "2024",
+    year: "September 2024",
     image: "/certificates/cf1.png",
   },
   {
@@ -70,13 +78,22 @@ export default function Certifications() {
               key={`${cert.title}-${cert.year}`}
               type="button"
               onClick={() => setSelected(cert)}
-              aria-label={`View certificate: ${cert.title}`}
+              aria-label={`View ${cert.isBadge ? "badge" : "certificate"}: ${cert.title}`}
             >
-              <img className="w-full aspect-[1.55] object-cover bg-field-raised border border-line/40 rounded-sm" src={cert.image} alt="" loading="lazy" />
+              <div className="w-full aspect-[1.55] flex items-center justify-center bg-field-raised/70 border border-line/40 rounded-sm overflow-hidden p-2">
+                <img
+                  className={`max-w-full max-h-full transition-transform duration-300 group-hover:scale-[1.03] ${cert.isBadge ? "object-contain p-2 drop-shadow-md" : "object-cover w-full h-full"}`}
+                  src={cert.image}
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
               <h3 className="mt-4 mb-2 font-serif font-medium text-base md:text-lg leading-snug text-ink group-hover:text-signal transition-colors">{cert.title}</h3>
               <p className="m-0 text-ink-muted text-xs leading-relaxed">{cert.issuer}</p>
               <p className="m-0 text-ink-muted/80 text-xs font-mono mt-0.5">{cert.year}</p>
-              <span className="inline-block mt-3 text-signal text-xs font-semibold group-hover:underline">View certificate</span>
+              <span className="inline-block mt-3 text-signal text-xs font-semibold group-hover:underline">
+                {cert.isBadge ? "View official badge" : "View certificate"}
+              </span>
             </button>
           ))}
         </div>
@@ -104,7 +121,13 @@ export default function Certifications() {
                 Close
               </button>
             </header>
-            <img className="max-w-full max-h-[calc(92vh-60px)] object-contain self-center p-4" src={selected.image} alt={`${selected.title} certificate`} />
+            <div className="flex items-center justify-center p-6 min-h-[300px] overflow-auto">
+              <img
+                className={`max-w-full max-h-[calc(92vh-100px)] object-contain ${selected.isBadge ? "max-h-[380px] drop-shadow-xl" : ""}`}
+                src={selected.image}
+                alt={`${selected.title} ${selected.isBadge ? "badge" : "certificate"}`}
+              />
+            </div>
           </section>
         </dialog>
       )}
