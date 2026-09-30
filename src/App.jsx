@@ -12,14 +12,17 @@ import Certifications from "./pages/Certifications.jsx";
 
 function App() {
   useEffect(() => {
-    // On visit to the page, land directly on Playground section
-    if (!window.location.hash || window.location.hash === "#playground") {
-      const el = document.getElementById("playground");
+    // Default to Home on page load/refresh unless a specific non-playground hash is explicitly requested
+    if (window.location.hash && window.location.hash !== "#home" && window.location.hash !== "#playground") {
+      const targetId = window.location.hash.replace("#", "");
+      const el = document.getElementById(targetId);
       if (el) {
         requestAnimationFrame(() => {
-          el.scrollIntoView({ behavior: "auto" });
+          el.scrollIntoView({ behavior: "smooth" });
         });
       }
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
   }, []);
 

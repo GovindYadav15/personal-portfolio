@@ -1,5 +1,45 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import {
+  SiDocker,
+  SiKubernetes,
+  SiAmazonwebservices,
+  SiJenkins,
+  SiNodedotjs,
+  SiMongodb,
+  SiNginx,
+  SiGithubactions,
+  SiTerraform,
+  SiLinux,
+} from "react-icons/si";
+
+function OrbitingIcon({ orbitId, dur, begin = "0s", Icon, color, name }) {
+  return (
+    <g className="cursor-pointer pointer-events-auto">
+      <animateMotion dur={dur} begin={begin} repeatCount="indefinite">
+        <mpath href={`#${orbitId}`} />
+      </animateMotion>
+      <title>{name}</title>
+      {/* Outer subtle halo ring */}
+      <circle r="16.5" fill="none" stroke="var(--line-strong)" strokeWidth="0.8" opacity="0.5" />
+      {/* Badge container with theme-aware background */}
+      <circle
+        r="14"
+        fill="var(--field-raised)"
+        stroke="var(--line-strong)"
+        strokeWidth="1.2"
+      />
+      {/* Subtle brand color glow inside badge */}
+      <circle r="13" fill={color} opacity="0.14" />
+      {/* Centered tech icon */}
+      <g transform="translate(-8, -8)">
+        <Icon size={16} color={color} aria-hidden="true" />
+      </g>
+      {/* Trailing micro orbital spark */}
+      <circle cx="11" cy="-9" r="1.8" fill="var(--signal)" opacity="0.85" filter="url(#electronGlow)" />
+    </g>
+  );
+}
 
 export default function Home() {
   const [showCv, setShowCv] = useState(false);
@@ -11,7 +51,16 @@ export default function Home() {
     return undefined;
   }, [showCv]);
 
-  const technologies = ["Node.js", "Express", "MongoDB", "AWS"];
+  const technologies = [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "CI/CD",
+    "Terraform",
+  ];
 
   return (
     <div className="max-w-[1240px] w-[calc(100%-36px)] sm:w-[calc(100%-44px)] md:w-[calc(100%-64px)] mx-auto min-h-0 md:min-h-[720px] grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(360px,1.08fr)] lg:grid-cols-[1fr_1.15fr] gap-8 md:gap-10 lg:gap-16 items-center py-14 sm:py-20 md:py-24">
@@ -23,7 +72,7 @@ export default function Home() {
           Backend &amp; DevOps Engineer
         </p>
         <p className="max-w-[58ch] mb-7 text-ink-soft text-base leading-[1.8]">
-          I build backend systems and the infrastructure behind them, working across Node.js, Express, MongoDB, and AWS. I also enjoy mentoring others in modern backend development and cloud automation.
+          Backend Developer and DevOps enthusiast with strong experience in Node.js, Express, REST APIs, CI/CD pipelines, Cloud Infrastructure, and containerized deployments. AWS Certified Cloud Practitioner with hands-on experience in automation, IaC, monitoring, and scalable backend systems.
         </p>
         <div className="flex flex-wrap items-center gap-3">
           <a
@@ -67,7 +116,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
-        {/* Dynamic Atomic Orbital Circles & Traveling Dots (SVG Vector) */}
+        {/* Dynamic Atomic Orbital Circles & Traveling DevOps/Backend Tool Badges (SVG Vector) */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none z-[1] select-none"
           viewBox="0 0 560 560"
@@ -92,84 +141,101 @@ export default function Home() {
             strokeWidth="1"
             opacity="0.85"
           />
-          {/* Electron 1A on outer circle */}
-          <circle r="4" fill="var(--signal)" filter="url(#electronGlow)">
-            <animateMotion dur="26s" repeatCount="indefinite">
-              <mpath href="#orbit-outer" />
-            </animateMotion>
-          </circle>
-          {/* Electron 1B opposite position on outer circle */}
-          <circle r="2.5" fill="var(--signal)" opacity="0.6" filter="url(#electronGlow)">
-            <animateMotion dur="26s" begin="-13s" repeatCount="indefinite">
-              <mpath href="#orbit-outer" />
-            </animateMotion>
-          </circle>
+          <OrbitingIcon
+            orbitId="orbit-outer"
+            dur="28s"
+            begin="0s"
+            Icon={SiDocker}
+            color="#2496ED"
+            name="Docker"
+          />
+          <OrbitingIcon
+            orbitId="orbit-outer"
+            dur="28s"
+            begin="-14s"
+            Icon={SiKubernetes}
+            color="#326CE5"
+            name="Kubernetes"
+          />
 
           {/* Orbit 2: Atomic Ellipse A tilted at -36deg */}
-          <g transform="rotate(-36 280 280)">
-            <path
-              id="orbit-atom-a"
-              d="M 30,280 a 250,112 0 1,0 500,0 a 250,112 0 1,0 -500,0"
-              fill="none"
-              stroke="var(--line-strong)"
-              strokeWidth="1.2"
-              opacity="0.9"
-            />
-            {/* Primary Electron on Atom A */}
-            <circle r="4.5" fill="var(--signal)" filter="url(#electronGlow)">
-              <animateMotion dur="9s" repeatCount="indefinite">
-                <mpath href="#orbit-atom-a" />
-              </animateMotion>
-            </circle>
-            {/* Secondary Satellite Particle */}
-            <circle r="2" fill="var(--signal)" opacity="0.6" filter="url(#electronGlow)">
-              <animateMotion dur="9s" begin="-4.5s" repeatCount="indefinite">
-                <mpath href="#orbit-atom-a" />
-              </animateMotion>
-            </circle>
-          </g>
+          <path
+            id="orbit-atom-a"
+            d="M 77.75,426.95 A 250,112 -36 1,0 482.25,133.05 A 250,112 -36 1,0 77.75,426.95"
+            fill="none"
+            stroke="var(--line-strong)"
+            strokeWidth="1.2"
+            opacity="0.85"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-a"
+            dur="22s"
+            begin="0s"
+            Icon={SiAmazonwebservices}
+            color="#FF9900"
+            name="AWS"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-a"
+            dur="22s"
+            begin="-11s"
+            Icon={SiJenkins}
+            color="#D24939"
+            name="Jenkins"
+          />
 
           {/* Orbit 3: Atomic Ellipse B tilted at +36deg */}
-          <g transform="rotate(36 280 280)">
-            <path
-              id="orbit-atom-b"
-              d="M 30,280 a 250,112 0 1,0 500,0 a 250,112 0 1,0 -500,0"
-              fill="none"
-              stroke="var(--line-strong)"
-              strokeWidth="1.2"
-              strokeDasharray="6 8"
-              opacity="0.85"
-            />
-            {/* Primary Electron on Atom B */}
-            <circle r="4.5" fill="var(--signal)" filter="url(#electronGlow)">
-              <animateMotion dur="12s" repeatCount="indefinite">
-                <mpath href="#orbit-atom-b" />
-              </animateMotion>
-            </circle>
-            {/* Secondary Satellite Particle */}
-            <circle r="2" fill="var(--signal)" opacity="0.6" filter="url(#electronGlow)">
-              <animateMotion dur="12s" begin="-6s" repeatCount="indefinite">
-                <mpath href="#orbit-atom-b" />
-              </animateMotion>
-            </circle>
-          </g>
+          <path
+            id="orbit-atom-b"
+            d="M 77.75,133.05 A 250,112 36 1,0 482.25,426.95 A 250,112 36 1,0 77.75,133.05"
+            fill="none"
+            stroke="var(--line-strong)"
+            strokeWidth="1.2"
+            strokeDasharray="6 8"
+            opacity="0.85"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-b"
+            dur="24s"
+            begin="0s"
+            Icon={SiNodedotjs}
+            color="#5FA04E"
+            name="Node.js"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-b"
+            dur="24s"
+            begin="-12s"
+            Icon={SiMongodb}
+            color="#47A248"
+            name="MongoDB"
+          />
 
           {/* Orbit 4: Atomic Ellipse C tilted at 90deg (vertical) */}
-          <g transform="rotate(90 280 280)">
-            <path
-              id="orbit-atom-c"
-              d="M 50,280 a 230,96 0 1,0 460,0 a 230,96 0 1,0 -460,0"
-              fill="none"
-              stroke="var(--line)"
-              strokeWidth="1"
-              opacity="0.75"
-            />
-            <circle r="3.5" fill="var(--signal)" filter="url(#electronGlow)">
-              <animateMotion dur="14.5s" repeatCount="indefinite">
-                <mpath href="#orbit-atom-c" />
-              </animateMotion>
-            </circle>
-          </g>
+          <path
+            id="orbit-atom-c"
+            d="M 280.00,50.00 A 230,96 90 1,0 280.00,510.00 A 230,96 90 1,0 280.00,50.00"
+            fill="none"
+            stroke="var(--line)"
+            strokeWidth="1"
+            opacity="0.75"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-c"
+            dur="26s"
+            begin="0s"
+            Icon={SiGithubactions}
+            color="#2088FF"
+            name="GitHub Actions"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-c"
+            dur="26s"
+            begin="-13s"
+            Icon={SiTerraform}
+            color="#844FBA"
+            name="Terraform"
+          />
 
           {/* Orbit 5: Inner delicate dashed circular track */}
           <path
@@ -181,11 +247,22 @@ export default function Home() {
             strokeDasharray="3 5"
             opacity="0.7"
           />
-          <circle r="3" fill="var(--signal)" filter="url(#electronGlow)">
-            <animateMotion dur="7s" repeatCount="indefinite">
-              <mpath href="#orbit-atom-inner" />
-            </animateMotion>
-          </circle>
+          <OrbitingIcon
+            orbitId="orbit-atom-inner"
+            dur="18s"
+            begin="0s"
+            Icon={SiNginx}
+            color="#009639"
+            name="Nginx"
+          />
+          <OrbitingIcon
+            orbitId="orbit-atom-inner"
+            dur="18s"
+            begin="-9s"
+            Icon={SiLinux}
+            color="#E95420"
+            name="Linux"
+          />
         </svg>
 
         {/* Larger Portrait with smooth bottom fade mask */}

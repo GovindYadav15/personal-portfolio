@@ -461,17 +461,17 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
               <li>
                 <span className="opacity-60 w-24 inline-block">GitHub:</span>
                 <a
-                  href="https://github.com/Robertgovind"
+                  href="https://github.com/GovindYadav15"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sky-400 hover:underline"
                 >
-                  github.com/Robertgovind
+                  github.com/GovindYadav15
                 </a>
               </li>
               <li>
                 <span className="opacity-60 w-24 inline-block">Location:</span>
-                <span>Kathmandu, Nepal (UTC +5:45)</span>
+                <span>Kalyanpur-09 Siraha, Nepal (UTC +5:45)</span>
               </li>
             </ul>
           </div>

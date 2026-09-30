@@ -1,9 +1,12 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 const contactData = [
   { name: "Email", detail: "govind803556@gmail.com", link: "mailto:govind803556@gmail.com", Icon: Mail },
+  { name: "GitHub", detail: "@GovindYadav15", link: "https://github.com/GovindYadav15", Icon: Github },
   { name: "LinkedIn", detail: "Govind Kr Yadav", link: "https://www.linkedin.com/in/govind-kr-yadav-715b9426a/", Icon: Linkedin },
-  { name: "GitHub", detail: "@Robertgovind", link: "https://github.com/Robertgovind", Icon: Github },
+  { name: "Phone", detail: "+977 9824803556", link: "tel:+9779824803556", Icon: Phone },
+  { name: "Location", detail: "Kalyanpur-09 Siraha, Nepal", link: "https://maps.google.com/?q=Kalyanpur,Siraha,Nepal", Icon: MapPin },
+  { name: "Portfolio", detail: "govindyadav.com.np", link: "https://govindyadav.com.np", Icon: Globe },
 ];
 
 export default function Contact() {

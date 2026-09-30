@@ -1,13 +1,48 @@
 import { useEffect, useRef, useState } from "react";
 
 const certificationsData = [
-  { title: "Flutter & Dart - The Complete Flutter Development Course", issuer: "Udemy, Instructed by Hussain Mustafa", year: "April 2024", image: "/certificates/cf6.jpg" },
-  { title: "Microsoft Learn Student Ambassador", issuer: "Pablo Veramendi", year: "2023", image: "/certificates/cf5.png" },
-  { title: "Backend Development with Node.js", issuer: "Udemy, Instructed by Pierre-Henry Soria", year: "2022", image: "/certificates/cf7.jpg" },
-  { title: "Microsoft Learn Student Ambassador-Alpha", issuer: "Pablo Veramendi", year: "2023", image: "/certificates/cf3.png" },
-  { title: "AWS Fellowship: Cohort 1", issuer: "AWS Cloud Club Nepal", year: "2024", image: "/certificates/cf1.png" },
-  { title: "AWS Academy Cloud Foundations", issuer: "AWS Academy", year: "2025", image: "/certificates/cf2.png" },
-  { title: "Microsoft Learn Student Ambassador-Beta", issuer: "Pablo Veramendi", year: "2024", image: "/certificates/cf4.png" },
+  {
+    title: "AWS Certified Solution Architect Associate",
+    issuer: "Amazon Web Services (AWS)",
+    year: "Feb 02, 2026",
+    image: "/certificates/cf2.png",
+  },
+  {
+    title: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services (AWS)",
+    year: "Dec 09, 2025",
+    image: "/certificates/cf1.png",
+  },
+  {
+    title: "DevOps for beginners: Docker, K8S, Cloud, CI/CD & 4 Projects",
+    issuer: "Udemy · DevOps Engineering",
+    year: "Dec 2025",
+    image: "/certificates/cf7.jpg",
+  },
+  {
+    title: "Build a Backend REST API with Node JS from Scratch",
+    issuer: "Udemy, Instructed by Pierre-Henry Soria",
+    year: "Nov 28, 2024",
+    image: "/certificates/cf7.jpg",
+  },
+  {
+    title: "Dart & Flutter | The Complete Flutter Development Course",
+    issuer: "Udemy, Instructed by Hussain Mustafa",
+    year: "April 11, 2024",
+    image: "/certificates/cf6.jpg",
+  },
+  {
+    title: "AWS Fellowship: Cohort 1",
+    issuer: "AWS Cloud Club Nepal",
+    year: "2024",
+    image: "/certificates/cf1.png",
+  },
+  {
+    title: "Microsoft Learn Student Ambassador",
+    issuer: "Microsoft Learn, Instructed by Pablo Veramendi",
+    year: "2023 - 2024",
+    image: "/certificates/cf4.png",
+  },
 ];
 
 export default function Certifications() {

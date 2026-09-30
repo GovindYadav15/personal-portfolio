@@ -38,8 +38,9 @@ Status: Open to high-impact Backend and DevOps opportunities.`,
           name: "Govind Kumar Yadav",
           role: "Backend & DevOps Engineer",
           email: "govind803556@gmail.com",
-          location: "Kathmandu, Nepal",
-          github: "https://github.com/Robertgovind",
+          phone: "+9779824803556",
+          location: "Kalyanpur-09 Siraha, Nepal",
+          github: "https://github.com/GovindYadav15",
           linkedin: "https://www.linkedin.com/in/govind-kr-yadav-715b9426a/",
           portfolio: "https://www.govindyadav.com.np",
         },
@@ -72,58 +73,82 @@ Try running:
     projects: {
       type: "dir",
       children: {
+        "devops-pipeline.md": {
+          type: "file",
+          content: `Title: DevOps CI/CD Pipeline & AWS Deployment
+Category: Cloud & DevOps Automation
+Stack: AWS (EC2, IAM, CloudWatch), Docker, GitHub Actions, Nginx
+Description: Complete CI/CD pipeline automating build, test, and zero-downtime deployment on AWS EC2 with Docker containerization and reverse proxy.
+Repository: https://github.com/GovindYadav15/DevOps-Pipeline-AWS`,
+        },
+        "authverse.md": {
+          type: "file",
+          content: `Title: AuthVerse
+Category: Security & Authentication Engine
+Stack: Node.js, Express, MongoDB, JWT, OAuth 2.0, OTP, 2FA
+Description: Modular plug-and-play authentication framework supporting OAuth social login, passwordless magic links, time-based OTPs, and 2-Factor Authentication (2FA).
+Repository: https://github.com/GovindYadav15/AuthVerse`,
+        },
+        "tagify.md": {
+          type: "file",
+          content: `Title: Tagify
+Category: Backend CMS & Blog Engine
+Stack: Node.js, Express, MongoDB, Mongoose, JWT, Aggregation
+Description: High-performance content management API featuring nested categories, dynamic tag filtering, full-text search, and aggregation analytics.
+Repository: https://github.com/GovindYadav15/Tagify`,
+        },
+        "aws-pathway.md": {
+          type: "file",
+          content: `Title: AWS Pathway Learning App
+Category: Mobile Application & Backend Integration
+Stack: Flutter, Dart, FastAPI, Dio, Provider, Clean Architecture
+Description: Learner-focused mobile application for AWS certification preparation with exam simulators, timed tests, and performance analytics.
+Repository: https://github.com/GovindYadav15/AWS-Pathway-App`,
+        },
+        "progress-feed.md": {
+          type: "file",
+          content: `Title: ProgressFeed
+Category: Mobile Application
+Stack: Flutter, Dart, Firebase, Cloud Storage
+Description: Transparency platform linking contractors, municipal government authorities, and the public for public-infrastructure work audits.
+Repository: https://github.com/GovindYadav15/ProgressFeed`,
+        },
         "sports-arena.md": {
           type: "file",
           content: `Title: Sports Arena
 Category: Fullstack Web Application
 Stack: MongoDB, Express.js, React.js, Node.js (MERN)
 Description: College sports tournament management platform facilitating team registrations, real-time match scheduling, automated standings, and score tracking.
-Repository: https://github.com/Robertgovind/SportsArena`,
-        },
-        "tagify.md": {
-          type: "file",
-          content: `Title: Tagify
-Category: Backend CMS & Blog Engine
-Stack: Node.js, Express, MongoDB, Mongoose, JWT
-Description: High-performance content management API featuring nested categories, dynamic tag filtering, role-based access control, and search pagination.
-Repository: https://github.com/Robertgovind/Tagify`,
-        },
-        "authverse.md": {
-          type: "file",
-          content: `Title: AuthVerse
-Category: Security & Authentication Engine
-Stack: Node.js, Express, MongoDB, JWT, OAuth 2.0, OTP
-Description: Modular plug-and-play authentication framework supporting OAuth social login, passwordless magic links, time-based OTPs, and 2-Factor Authentication (2FA).
-Repository: https://github.com/Robertgovind/AuthVerse`,
-        },
-        "progress-feed.md": {
-          type: "file",
-          content: `Title: ProgressFeed
-Category: Mobile Application
-Stack: Flutter, Dart, REST APIs, Offline Cache
-Description: Transparency platform linking contractors, municipal government authorities, and the public for public-infrastructure work audits.
-Repository: https://github.com/Robertgovind/Tagify`,
+Repository: https://github.com/GovindYadav15/SportsArena`,
         },
       },
     },
     skills: {
       type: "dir",
       children: {
-        "languages.txt": {
+        "devops.txt": {
           type: "file",
-          content: "JavaScript (ESNext), Python, C++, SQL, Dart, Bash/Shell",
+          content: "Docker, Kubernetes (K8S), CI/CD (GitHub Actions), Jenkins, Terraform, CloudFormation, Nginx, Bash",
+        },
+        "cloud.txt": {
+          type: "file",
+          content: "AWS (EC2, S3, IAM, RDS, Lambda, CloudWatch, ECR, ECS, Load Balancers)",
         },
         "backend.txt": {
           type: "file",
-          content: "Node.js, Express.js, MongoDB, RESTful APIs, GraphQL, Mongoose, JWT",
+          content: "Node.js, Express.js, REST APIs, GraphQL, MVC Architecture, Microservices",
         },
-        "devops.txt": {
+        "databases.txt": {
           type: "file",
-          content: "Docker, Jenkins, AWS (EC2, S3, IAM), Linux / Unix Admin, CI/CD, Git / GitHub",
+          content: "MongoDB, PostgreSQL, MySQL",
+        },
+        "languages.txt": {
+          type: "file",
+          content: "JavaScript (Node.js), Python, C/C++, Java, Bash, Dart",
         },
         "frontend.txt": {
           type: "file",
-          content: "React.js, Flutter, HTML5, CSS3, Tailwind CSS, State Management (Provider)",
+          content: "Flutter, Dart, HTML5, CSS3, JavaScript, React.js",
         },
       },
     },
@@ -133,31 +158,31 @@ Repository: https://github.com/Robertgovind/Tagify`,
         "wiseyak.txt": {
           type: "file",
           content: `Company: Wiseyak
-Role: Junior DevOps Engineer
-Period: Jun 2026 - Present (Full-time)
-Location: Kathmandu, Nepal (On-site)
+Role: DevOps Engineer
+Period: June 2026 - Present (Full-time)
+Location: Kathmandu, Bagmati, Nepal (On-site)
 Highlights:
-• Configured automated Jenkins CI/CD pipelines for multi-service builds and testing.
-• Containerized microservices with Docker for staging and production parity.
-• Automated server health monitoring and deployment workflow reliability.`,
+• Designed and optimized robust Jenkins CI/CD pipelines to automate machine learning deployment.
+• Monitored containerized workloads across staging/prod, ensuring optimal GPU scheduling.
+• Conducted model benchmarking and performance analysis for inference speeds and system scalability.`,
         },
         "karnovation.txt": {
           type: "file",
-          content: `Company: Karnovation Inc
-Role: Software Engineer
-Period: Dec 2025 - Apr 2026 (Internship)
+          content: `Company: Karnovation Inc.
+Role: Flutter Developer
+Period: Dec 2025 - May 2026 (Internship)
 Location: Remote
 Highlights:
-• Engineered the 'AWS Pathway' mobile application using Flutter and Clean Architecture.
-• Implemented offline-first caching via Hive for docs, markdown, and quiz data.
-• Built scalable data models, mappers, and repositories with Provider state management.`,
+• Developed learner-facing Flutter app (AWS Pathway) integrating with FastAPI backend.
+• Implemented JWT and Google OAuth, REST APIs via Dio, and Provider state management.
+• Built server-driven exam workflows, analytics dashboards, and discussion forums.`,
         },
         "education.txt": {
           type: "file",
           content: `Institution: IOE Pashchimanchal Campus (WRC), Tribhuwan University
 Degree: Bachelor in Electronics, Communication & Information Engineering
-Duration: March 2022 - Present
-Note: Government Merit Scholarship recipient.`,
+Duration: March 2022 - May 2026
+Note: Received Government Merit Scholarship for 4-year engineering degree.`,
         },
       },
     },
@@ -166,76 +191,98 @@ Note: Government Merit Scholarship recipient.`,
 
 export const PROJECTS_DATA = [
   {
-    name: "Sports Arena",
-    slug: "sports-arena",
-    stack: ["MongoDB", "Express", "React", "Node.js"],
-    desc: "Fullstack tournament organizer with automated scheduling and team dashboards.",
-    link: "https://github.com/Robertgovind/SportsArena",
-  },
-  {
-    name: "Tagify",
-    slug: "tagify",
-    stack: ["Node.js", "Express", "MongoDB", "REST API"],
-    desc: "Robust backend CMS engine with dynamic tagging, filtering, and indexing.",
-    link: "https://github.com/Robertgovind/Tagify",
+    name: "DevOps CI/CD Pipeline & AWS Deployment",
+    slug: "devops-pipeline",
+    stack: ["AWS", "Docker", "GitHub Actions", "Nginx", "EC2"],
+    desc: "Complete CI/CD pipeline deploying containerized Node.js app on AWS EC2 with Nginx reverse proxy.",
+    link: "https://github.com/GovindYadav15/DevOps-Pipeline-AWS",
   },
   {
     name: "AuthVerse",
     slug: "authverse",
     stack: ["Node.js", "JWT", "OAuth 2.0", "2FA"],
-    desc: "Modular authentication system with social logins, magic links, and OTPs.",
-    link: "https://github.com/Robertgovind/AuthVerse",
+    desc: "Modular authentication system with social logins, magic links, OTPs, and 2FA.",
+    link: "https://github.com/GovindYadav15/AuthVerse",
+  },
+  {
+    name: "Tagify CMS",
+    slug: "tagify",
+    stack: ["Node.js", "Express", "MongoDB", "REST API"],
+    desc: "Robust backend CMS engine with dynamic tagging, filtering, full-text search, and aggregation.",
+    link: "https://github.com/GovindYadav15/Tagify",
+  },
+  {
+    name: "AWS Pathway Learning App",
+    slug: "aws-pathway",
+    stack: ["Flutter", "FastAPI", "Dio", "Provider"],
+    desc: "Learner-focused Flutter app for AWS exam prep with timers, scoring, and analytics dashboards.",
+    link: "https://github.com/GovindYadav15/AWS-Pathway-App",
   },
   {
     name: "ProgressFeed",
     slug: "progress-feed",
-    stack: ["Flutter", "Dart", "Clean Arch", "Hive"],
+    stack: ["Flutter", "Dart", "Firebase", "Role Auth"],
     desc: "Public infrastructure monitoring mobile app ensuring transparent progress reporting.",
-    link: "https://github.com/Robertgovind/Tagify",
+    link: "https://github.com/GovindYadav15/ProgressFeed",
+  },
+  {
+    name: "Sports Arena",
+    slug: "sports-arena",
+    stack: ["MongoDB", "Express", "React", "Node.js"],
+    desc: "Fullstack tournament organizer with automated scheduling and team dashboards.",
+    link: "https://github.com/GovindYadav15/SportsArena",
   },
 ];
 
 export const SKILLS_CATEGORIES = [
   {
-    title: "Backend & APIs",
-    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "GraphQL", "JWT"],
+    title: "DevOps & CI/CD",
+    skills: ["Docker", "Kubernetes (K8S)", "CI/CD (GitHub Actions)", "Jenkins", "Terraform", "CloudFormation", "Nginx", "Bash"],
   },
   {
-    title: "DevOps & Cloud",
-    skills: ["Docker", "Jenkins", "AWS (EC2, S3, IAM)", "Linux", "CI/CD", "Git"],
+    title: "Cloud Infrastructure (AWS)",
+    skills: ["AWS EC2", "S3", "IAM", "RDS", "Lambda", "CloudWatch", "ECR", "ECS", "Load Balancers"],
+  },
+  {
+    title: "Backend & Architecture",
+    skills: ["Node.js", "Express.js", "REST APIs", "GraphQL", "MVC Architecture", "Microservices", "JWT"],
+  },
+  {
+    title: "Databases",
+    skills: ["MongoDB", "PostgreSQL", "MySQL"],
   },
   {
     title: "Languages",
-    skills: ["JavaScript", "Python", "C++", "SQL", "Dart", "Bash"],
+    skills: ["JavaScript (Node.js)", "Python", "C/C++", "Java", "Bash", "Dart"],
   },
   {
     title: "Frontend & Mobile",
-    skills: ["React.js", "Flutter", "Tailwind CSS", "HTML5/CSS3", "Provider"],
+    skills: ["Flutter", "Dart", "HTML5", "CSS3", "JavaScript", "React.js"],
   },
 ];
 
 export const EXPERIENCE_ITEMS = [
   {
-    role: "Junior DevOps Engineer",
+    role: "DevOps Engineer",
     company: "Wiseyak",
     type: "Full-time",
-    period: "Jun 2026 - Present",
-    location: "Kathmandu, Nepal",
-    summary: "Docker, Jenkins CI/CD automation, server health monitoring, and container deployments.",
+    period: "June 2026 - Present",
+    location: "Kathmandu, Bagmati, Nepal · On-site",
+    summary: "Jenkins CI/CD automation, Docker/Kubernetes container orchestration, GPU scheduling, and inference benchmarking.",
   },
   {
-    role: "Software Engineer",
-    company: "Karnovation Inc",
+    role: "Flutter Developer",
+    company: "Karnovation Inc.",
     type: "Internship",
-    period: "Dec 2025 - Apr 2026",
+    period: "Dec 2025 - May 2026",
     location: "Remote",
-    summary: "Built 'AWS Pathway' mobile app with Flutter, Clean Architecture, and Hive offline cache.",
+    summary: "Built 'AWS Pathway' mobile app with Flutter, FastAPI backend, clean architecture, and Provider state management.",
   },
   {
-    role: "B.E. in Electronics & Information",
-    company: "IOE WRC (Tribhuwan University)",
+    role: "B.E. in Electronics, Communication & Information",
+    company: "IOE Pashchimanchal Campus (WRC), Tribhuwan University",
     type: "Degree",
-    period: "2022 - Present",
+    period: "March 2022 - May 2026",
     location: "Pokhara, Nepal",
     summary: "Government Merit Scholarship; course focus on DSA, OS, DBMS, Networks, and Cloud Computing.",
   },

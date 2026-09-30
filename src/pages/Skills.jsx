@@ -1,9 +1,62 @@
 const skillGroups = [
-  { category: "Languages", items: ["JavaScript", "Python", "C++"] },
-  { category: "Backend", items: ["Express.js", "MongoDB", "GraphQL", "REST APIs"] },
-  { category: "Cloud & DevOps", items: ["AWS", "Git", "Docker", "Linux"] },
-  { category: "Frontend & Mobile", items: ["Flutter", "HTML", "CSS", "JavaScript"] },
-  { category: "Concepts", items: ["DSA", "System Design", "Microservices"] },
+  {
+    category: "DevOps & CI/CD",
+    items: [
+      "Docker",
+      "Kubernetes (K8S)",
+      "CI/CD (GitHub Actions)",
+      "Jenkins",
+      "Terraform",
+      "CloudFormation",
+      "Nginx",
+      "Bash",
+    ],
+  },
+  {
+    category: "Cloud (AWS)",
+    items: [
+      "AWS EC2",
+      "S3",
+      "IAM",
+      "RDS",
+      "Lambda",
+      "CloudWatch",
+      "ECR",
+      "ECS",
+      "Load Balancers",
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "GraphQL",
+      "MVC Architecture",
+      "Microservices",
+    ],
+  },
+  {
+    category: "Databases",
+    items: ["MongoDB", "PostgreSQL", "MySQL"],
+  },
+  {
+    category: "Languages",
+    items: ["JavaScript (Node.js)", "Python", "C/C++", "Java", "Bash"],
+  },
+  {
+    category: "Frontend & Mobile",
+    items: ["Flutter", "Dart", "HTML", "CSS", "JavaScript"],
+  },
+  {
+    category: "Tools",
+    items: ["Git", "GitHub", "Postman"],
+  },
+  {
+    category: "Concepts",
+    items: ["Data Structures & Algorithms", "System Design"],
+  },
 ];
 
 export default function Skills() {
