@@ -289,8 +289,21 @@ export const EXPERIENCE_ITEMS = [
 ];
 
 export const TERMINAL_THEMES = {
+  gradientBlues: {
+    name: "Gradient Blues (Default)",
+    bg: "rgba(10, 9, 26, 0.97)",
+    border: "rgba(114, 239, 221, 0.28)",
+    headerBg: "rgba(18, 14, 46, 0.98)",
+    text: "#f3f6fc",
+    promptUser: "#72efdd",
+    promptPath: "#5e60ce",
+    commandText: "#ffffff",
+    accent: "#64dfdf",
+    muted: "#788eb5",
+    cursor: "#80ffdb",
+  },
   forest: {
-    name: "Forest (Default)",
+    name: "Forest",
     bg: "rgba(10, 26, 20, 0.95)",
     border: "rgba(193, 208, 195, 0.2)",
     headerBg: "rgba(16, 39, 29, 0.95)",

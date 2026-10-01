@@ -10,7 +10,7 @@ import {
 } from "../data/terminalData";
 import { Terminal as TerminalIcon, Maximize2, Minimize2, RotateCcw, ExternalLink } from "lucide-react";
 
-export default function Terminal({ defaultTheme = "forest", className = "" } = {}) {
+export default function Terminal({ defaultTheme = "gradientBlues", className = "" } = {}) {
   const [themeKey, setThemeKey] = useState(defaultTheme);
   const [cwd, setCwd] = useState("~");
   const [input, setInput] = useState("");
@@ -20,7 +20,7 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
 
-  const theme = TERMINAL_THEMES[themeKey] || TERMINAL_THEMES.forest;
+  const theme = TERMINAL_THEMES[themeKey] || TERMINAL_THEMES.gradientBlues;
 
   // Initial welcome banner
   const [entries, setEntries] = useState([
@@ -35,14 +35,14 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
       content: (
         <div className="space-y-1.5 text-xs md:text-sm">
           <p>
-            Welcome to <span className="font-bold text-emerald-400">Govind's Interactive Terminal</span>.
+            Welcome to <span className="font-bold text-cyan-400">Govind's Interactive Terminal</span>.
           </p>
           <p className="opacity-80">
-            Type <span className="underline font-semibold text-lime-300">help</span> to list commands, or explore{" "}
-            <span className="font-semibold text-lime-300">projects</span>,{" "}
-            <span className="font-semibold text-lime-300">skills</span>,{" "}
-            <span className="font-semibold text-lime-300">experience</span>, or{" "}
-            <span className="font-semibold text-lime-300">theme matrix</span>.
+            Type <span className="underline font-semibold text-cyan-300">help</span> to list commands, or explore{" "}
+            <span className="font-semibold text-cyan-300">projects</span>,{" "}
+            <span className="font-semibold text-cyan-300">skills</span>,{" "}
+            <span className="font-semibold text-cyan-300">experience</span>, or{" "}
+            <span className="font-semibold text-cyan-300">theme matrix</span>.
           </p>
         </div>
       ),
@@ -528,7 +528,7 @@ export default function Terminal({ defaultTheme = "forest", className = "" } = {
         } else {
           outputContent = (
             <span className="text-red-400 text-xs md:text-sm">
-              Unknown theme: '{targetTheme}'. Available: forest, dark, matrix, retro, light, cyberpunk
+              Unknown theme: '{targetTheme}'. Available: gradientBlues, forest, dark, matrix, retro, cyberpunk, light
             </span>
           );
           outputType = "error";

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToggle.jsx";
 
 const links = [
   { to: "projects", text: "Projects" },
@@ -52,10 +51,10 @@ export default function Navbar() {
               >
                 {isPlayground && (
                   <span
-                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-1.5 py-0.2 rounded-full bg-signal text-[#0d1d16] text-[8.5px] font-mono font-extrabold uppercase tracking-wider shadow-sm flex items-center gap-1 pointer-events-none border border-signal-deep/30 animate-pulse"
+                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-1.5 py-0.2 rounded-full bg-signal text-[#0a091a] text-[8.5px] font-mono font-extrabold uppercase tracking-wider shadow-sm flex items-center gap-1 pointer-events-none border border-signal-deep/30 animate-pulse"
                     aria-label="New feature"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0d1d16] inline-block animate-ping" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0a091a] inline-block animate-ping" />
                     new
                   </span>
                 )}
@@ -63,7 +62,6 @@ export default function Navbar() {
               </button>
             );
           })}
-          <ThemeToggle />
         </div>
         <button
           className="grid md:hidden place-items-center w-[42px] h-[42px] border border-line-strong bg-transparent text-ink cursor-pointer hover:border-signal transition-colors"
@@ -90,17 +88,14 @@ export default function Navbar() {
                 >
                   <span className={isPlayground ? "text-ink font-semibold" : ""}>{link.text}</span>
                   {isPlayground && (
-                    <span className="px-2 py-0.5 rounded-full bg-signal text-[#0d1d16] text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0d1d16] inline-block animate-ping" />
+                    <span className="px-2 py-0.5 rounded-full bg-signal text-[#0a091a] text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0a091a] inline-block animate-ping" />
                       NEW
                     </span>
                   )}
                 </button>
               );
             })}
-            <div className="pt-2">
-              <ThemeToggle showLabel />
-            </div>
           </div>
         </div>
       )}

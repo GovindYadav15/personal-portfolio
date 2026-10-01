@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="relative isolate overflow-clip min-h-screen bg-field text-ink transition-colors duration-300">
       <div
-        className="absolute -z-10 inset-x-0 top-0 h-[min(100vh,900px)] pointer-events-none opacity-25 bg-[radial-gradient(ellipse_at_78%_18%,rgba(87,126,88,0.16),transparent_42%),linear-gradient(to_right,transparent_calc(50%-0.5px),var(--line)_50%,transparent_calc(50%+0.5px))] [mask-image:linear-gradient(to_bottom,#000,transparent_82%)]"
+        className="absolute -z-10 inset-x-0 top-0 h-[min(100vh,900px)] pointer-events-none opacity-40 bg-[radial-gradient(ellipse_at_78%_18%,rgba(105,48,195,0.22),transparent_48%),radial-gradient(ellipse_at_20%_60%,rgba(86,207,225,0.14),transparent_44%),linear-gradient(to_right,transparent_calc(50%-0.5px),var(--line)_50%,transparent_calc(50%+0.5px))] [mask-image:linear-gradient(to_bottom,#000,transparent_82%)]"
         aria-hidden="true"
       />
       <Navbar />

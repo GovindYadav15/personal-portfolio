@@ -76,7 +76,7 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap items-center gap-3">
           <a
-            className="min-h-[48px] inline-flex justify-center items-center gap-2.5 px-4 sm:px-5 border border-signal bg-signal text-[#102219] font-bold text-sm cursor-pointer transition-all hover:bg-signal-deep hover:border-signal-deep hover:text-white shadow-sm"
+            className="min-h-[48px] inline-flex justify-center items-center gap-2.5 px-4 sm:px-5 border border-signal bg-signal text-[#0a091a] font-bold text-sm cursor-pointer transition-all hover:bg-signal-deep hover:border-signal-deep hover:text-[#0a091a] shadow-sm"
             href="#projects"
           >
             Explore projects <ArrowDownRight size={16} aria-hidden="true" />
@@ -111,7 +111,7 @@ export default function Home() {
       >
         {/* Ambient energy aura centered behind portrait */}
         <div
-          className="absolute inset-[15%] rounded-full bg-signal/10 blur-3xl pointer-events-none -z-10 animate-pulse"
+          className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle,rgba(114,239,221,0.22)_0%,rgba(105,48,195,0.2)_50%,transparent_75%)] blur-3xl pointer-events-none -z-10 animate-pulse"
           style={{ animationDuration: "5s" }}
           aria-hidden="true"
         />
