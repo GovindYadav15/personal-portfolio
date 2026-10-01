@@ -157,6 +157,10 @@ export default function Terminal({ defaultTheme = "gradientBlues", className = "
                 <span className="opacity-75"> - Smoothly scroll page to section</span>
               </div>
               <div>
+                <span className="font-bold text-lime-400">deploy</span>
+                <span className="opacity-75"> - Replay the funny DevOps CI/CD launch animation 🚀</span>
+              </div>
+              <div>
                 <span className="font-bold text-lime-400">clear</span>
                 <span className="opacity-75"> - Clear terminal screen (or Ctrl + L)</span>
               </div>
@@ -558,6 +562,26 @@ export default function Terminal({ defaultTheme = "gradientBlues", className = "
         break;
       }
 
+      case "deploy":
+      case "redeploy":
+      case "loader": {
+        if (typeof window !== "undefined" && window.replayDevOpsLoader) {
+          window.replayDevOpsLoader();
+          outputContent = (
+            <span className="text-lime-300 text-xs font-mono">
+              🚀 Launching DevOps Deployment Pipeline animation...
+            </span>
+          );
+        } else {
+          outputContent = (
+            <span className="text-amber-400 text-xs font-mono">
+              DevOps Loader initialized.
+            </span>
+          );
+        }
+        break;
+      }
+
       case "clear":
       case "cls": {
         setEntries([]);
@@ -637,6 +661,21 @@ export default function Terminal({ defaultTheme = "gradientBlues", className = "
 
     setInput("");
   };
+
+  const executeCommandRef = useRef(null);
+  executeCommandRef.current = executeCommand;
+
+  // Listen for custom command execution events from Playground quick-launch cards
+  useEffect(() => {
+    const handleCustomCommand = (e) => {
+      if (e.detail && executeCommandRef.current) {
+        executeCommandRef.current(e.detail);
+        inputRef.current?.focus({ preventScroll: true });
+      }
+    };
+    window.addEventListener("run-terminal-command", handleCustomCommand);
+    return () => window.removeEventListener("run-terminal-command", handleCustomCommand);
+  }, []);
 
   // Keyboard controls: Enter, Up/Down history, Tab autocomplete, Ctrl+L
   const handleKeyDown = (e) => {

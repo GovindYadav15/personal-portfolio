@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Sparkles } from "lucide-react";
 import {
   SiDocker,
   SiKubernetes,
@@ -43,7 +43,30 @@ function OrbitingIcon({ orbitId, dur, begin = "0s", Icon, color, name }) {
 
 export default function Home() {
   const [showCv, setShowCv] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const cvDialog = useRef(null);
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.65;
+      videoRef.current.currentTime = 0;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
 
   useEffect(() => {
     if (!showCv) return undefined;
@@ -106,12 +129,16 @@ export default function Home() {
       </div>
 
       <div
-        className="relative w-[min(94%,440px)] md:w-[min(100%,530px)] lg:w-[570px] xl:w-[610px] aspect-square justify-self-center md:justify-self-end flex items-center justify-center order-first md:order-last"
+        className="relative w-[min(94%,440px)] md:w-[min(100%,530px)] lg:w-[570px] xl:w-[610px] aspect-square justify-self-center md:justify-self-end flex items-center justify-center order-first md:order-last group"
         aria-label="Portrait of Govind Kumar Yadav with animated atomic orbital circles"
       >
         {/* Ambient energy aura centered behind portrait */}
         <div
-          className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle,rgba(114,239,221,0.22)_0%,rgba(105,48,195,0.2)_50%,transparent_75%)] blur-3xl pointer-events-none -z-10 animate-pulse"
+          className={`absolute inset-[8%] rounded-full blur-3xl pointer-events-none -z-10 transition-all duration-700 ${
+            isHovered
+              ? "scale-125 opacity-90 blur-2xl bg-[radial-gradient(circle,rgba(114,239,221,0.38)_0%,rgba(105,48,195,0.35)_50%,transparent_75%)]"
+              : "opacity-50 bg-[radial-gradient(circle,rgba(114,239,221,0.22)_0%,rgba(105,48,195,0.2)_50%,transparent_75%)]"
+          }`}
           style={{ animationDuration: "5s" }}
           aria-hidden="true"
         />
@@ -265,20 +292,108 @@ export default function Home() {
           />
         </svg>
 
-        {/* Larger Portrait with smooth bottom fade mask */}
-        <div className="relative z-[2] w-[105%] h-[128%] -mt-[20%] flex items-end justify-center pointer-events-none [mask-image:linear-gradient(to_bottom,#000_65%,rgba(0,0,0,0.3)_86%,transparent_98%)]">
+        {/* Interactive Portrait & 3D Video Holo Container */}
+        <div
+          className="relative z-[2] w-[105%] h-[128%] -mt-[20%] flex items-end justify-center cursor-pointer pointer-events-auto select-none [mask-image:linear-gradient(to_bottom,#000_65%,rgba(0,0,0,0.3)_86%,transparent_98%)] transition-transform duration-500 ease-out hover:scale-[1.03]"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          title="Hover to view 3D interactive avatar"
+        >
+          {/* Static Portrait Image (Base Layer) */}
           <img
-            className="w-full h-full object-contain object-bottom scale-110 origin-bottom mix-blend-multiply"
+            className={`w-full h-full object-contain object-bottom scale-110 origin-bottom mix-blend-multiply transition-opacity duration-500 ${
+              isHovered && videoLoaded ? "opacity-0" : "opacity-100"
+            }`}
             src="/details/govind_yadav.png"
             alt="Govind Kumar Yadav"
             fetchPriority="high"
           />
+
+          {/* 3D Animated Video Layer (Transparent WebM with MP4 fallback) */}
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 w-full h-full object-contain object-bottom scale-[1.48] -translate-y-[2.8%] origin-bottom transition-all duration-500 pointer-events-none drop-shadow-[0_0_16px_rgba(114,239,221,0.22)] drop-shadow-[0_4px_24px_rgba(105,48,195,0.25)] ${
+              isHovered ? "opacity-100" : "opacity-0"
+            }`}
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onCanPlay={() => setVideoLoaded(true)}
+            onLoadedMetadata={() => {
+              if (videoRef.current) {
+                videoRef.current.playbackRate = 0.65;
+              }
+            }}
+          >
+            <source src="/details/3d-video.webm" type="video/webm" />
+            <source src="/details/3d-video.mp4" type="video/mp4" />
+          </video>
+
+          {/* Holographic Cyber Laser Scanline sweep on hover */}
+          {isHovered && (
+            <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-signal to-transparent pointer-events-none z-30 shadow-[0_0_15px_#72efdd] animate-holo-scan" />
+          )}
+
+          {/* Corner Cyber HUD Reticles on Hover */}
+          <div
+            className={`absolute inset-[10%] md:inset-[12%] pointer-events-none transition-opacity duration-300 z-20 ${
+              isHovered ? "opacity-85" : "opacity-0"
+            }`}
+          >
+            {/* Top Left */}
+            <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-signal shadow-[0_0_8px_#72efdd]" />
+            {/* Top Right */}
+            <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-signal shadow-[0_0_8px_#72efdd]" />
+            {/* Bottom Left */}
+            <span className="absolute bottom-6 left-0 w-4 h-4 border-b-2 border-l-2 border-signal shadow-[0_0_8px_#72efdd]" />
+            {/* Bottom Right */}
+            <span className="absolute bottom-6 right-0 w-4 h-4 border-b-2 border-r-2 border-signal shadow-[0_0_8px_#72efdd]" />
+          </div>
         </div>
 
-        {/* Glassmorphic role caption tag */}
-        <span className="absolute right-[0%] md:-right-[2%] bottom-[8%] md:bottom-[10%] z-20 px-3.5 py-1.5 bg-field-raised/90 backdrop-blur-md border border-line-strong rounded text-ink-soft font-mono text-[11px] font-semibold tracking-widest uppercase shadow-lg">
-          Backend · DevOps
-        </span>
+        {/* Glassmorphic role caption tag with 3D Holo Status */}
+        <div className="absolute right-[0%] md:-right-[2%] bottom-[8%] md:bottom-[10%] z-20 flex flex-col items-end gap-1.5 pointer-events-none select-none">
+          <span
+            className={`px-3.5 py-1.5 bg-field-raised/90 backdrop-blur-md border rounded font-mono text-[11px] font-semibold tracking-widest uppercase shadow-lg transition-all duration-300 flex items-center gap-2 ${
+              isHovered
+                ? "border-signal text-signal shadow-[0_0_20px_rgba(114,239,221,0.35)] bg-[#120e2e]/95"
+                : "border-line-strong text-ink-soft"
+            }`}
+          >
+            {isHovered ? (
+              <>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-signal" />
+                </span>
+                <span>3D Holo Active</span>
+                <span className="flex items-end gap-0.5 h-3 ml-0.5">
+                  <span className="w-0.5 bg-signal animate-pulse h-full" />
+                  <span className="w-0.5 bg-signal animate-pulse h-2/3" style={{ animationDelay: "150ms" }} />
+                  <span className="w-0.5 bg-signal animate-pulse h-4/5" style={{ animationDelay: "300ms" }} />
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="w-1.5 h-1.5 rounded-full bg-signal/60" />
+                <span>Backend · DevOps</span>
+              </>
+            )}
+          </span>
+
+          {/* Interactive Hint Pill */}
+          <span
+            className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider transition-all duration-300 flex items-center gap-1 backdrop-blur-sm ${
+              isHovered
+                ? "bg-signal/20 text-signal border border-signal/40 opacity-100 shadow-[0_0_10px_rgba(114,239,221,0.2)]"
+                : "bg-field-raised/60 text-ink-muted border border-line opacity-75"
+            }`}
+          >
+            <Sparkles size={11} className={isHovered ? "text-signal animate-spin" : "text-ink-muted"} />
+            <span>{isHovered ? "Rendering 3D Motion" : "Hover for 3D View"}</span>
+          </span>
+        </div>
       </div>
 
       {showCv && (

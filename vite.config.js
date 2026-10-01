@@ -9,4 +9,12 @@ export default defineConfig({
       darkMode: "class",
     }),
   ],
+  server: {
+    watch: {
+      ignored: [
+        "**/*.mp4",
+        "**/public/details/**",
+      ],
+    },
+  },
 });

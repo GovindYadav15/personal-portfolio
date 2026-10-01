@@ -76,6 +76,27 @@ body {
   animation: signalArrive 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes holoScan {
+  0% {
+    top: 6%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
+
+.animate-holo-scan {
+  animation: holoScan 2.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;
